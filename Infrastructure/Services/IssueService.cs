@@ -1,0 +1,151 @@
+using System.Net;
+using Domain.Dto.IssueDto;
+using Domain.Dto.SolutionDto;
+using Domain.Entities;
+using Domain.Filter;
+using Infrastructure.Interfaces;
+using Infrastructure.Repositories.IssueRepositories;
+using Infrastructure.Response;
+using Microsoft.AspNetCore.Hosting;
+
+namespace Infrastructure.Services;
+
+public class IssueService(IIssueRepository repository, IWebHostEnvironment _environment) : IIssueService
+{
+    public async Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter)
+    {
+        var issue = await repository.GetAll(filter);
+        var totalRecords = issue.Count;
+        var data = issue
+            .Skip((filter.PageNumber - 1) * filter.PageSize)
+            .Take(filter.PageSize)
+            .ToList();
+        var result = issue.Select(i => new GetIssuesDto()
+        {
+            Id = i.Id,
+            Title = i.Title,
+            Description = i.Description,
+            CreatedAt = i.CreatedAt,
+            ProfileImagePath = i.ProfileImagePath,
+            DepartmentId = i.DepartmentId,
+            Solutions = i.Solutions.Select(s => new GetSolutionsDto()
+            {
+                Id = s.Id,
+                Description = s.Description,
+                CreatedAt = s.CreatedAt,
+                ProfileImagePath = s.ProfileImagePath,
+                IssueId = s.IssueId
+            }).ToList()
+        }).ToList();
+        return new PaginationResponse<List<GetIssuesDto>>(result, totalRecords, filter.PageNumber, filter.PageSize);
+    }
+
+    public async Task<ApiResponse<GetIssuesDto>> GetByIdAsync(int id)
+    {
+        var issue = await repository.GetIssue(i => i.Id == id);
+        if (issue == null)
+        {
+            return new ApiResponse<GetIssuesDto>(HttpStatusCode.NotFound, "Issue NotFound ");
+        }
+
+        var result = new GetIssuesDto()
+        {
+            Id = issue.Id,
+            Title = issue.Title,
+            Description = issue.Description,
+            CreatedAt = issue.CreatedAt,
+            ProfileImagePath = issue.ProfileImagePath,
+            DepartmentId = issue.DepartmentId,
+            Solutions = issue.Solutions.Select(s => new GetSolutionsDto()
+            {
+                Id = s.Id,
+                Description = s.Description,
+                CreatedAt = s.CreatedAt,
+                ProfileImagePath = s.ProfileImagePath,
+                IssueId = s.IssueId
+            }).ToList()
+        };
+        return new ApiResponse<GetIssuesDto>(result);
+    }
+
+    public async Task<ApiResponse<string>> CreateAsync(AddIssueDto request)
+    {
+        var issue = new Issue()
+        {
+            Title = request.Title,
+            Description = request.Description,
+            CreatedAt = DateTime.UtcNow,
+            DepartmentId = request.DepartmentId,
+        };
+        if (request.ProfileImage != null && request.ProfileImage.Length > 0)
+        {
+            var fileExtension = Path.GetExtension(request.ProfileImage.FileName).ToLowerInvariant();
+            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+
+            var uploadsFolder = Path.Combine(_environment.ContentRootPath, "uploads", "profiles");
+
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            await using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await request.ProfileImage.CopyToAsync(stream);
+            }
+
+            issue.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+        }
+
+        var result = await repository.CreateIssue(issue);
+        return result == 1
+            ? new ApiResponse<string>("Success")
+            : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
+    }
+
+    public async Task<ApiResponse<string>> UpdateAsync(int id, UpdateIssueDto request)
+    {
+        var issue = await repository.GetIssue(i => i.Id == id);
+        if (issue == null)
+        {
+            return new ApiResponse<string>(HttpStatusCode.NotFound, "Issue Not Found ");
+        }
+
+        issue.Id = request.Id;
+        issue.Title = request.Title;
+        issue.Description = request.Description;
+        issue.CreatedAt = request.CreatedAt;
+        issue.DepartmentId = request.DepartmentId;
+        if (request.ProfileImage != null && request.ProfileImage.Length > 0)
+        {
+            var fileExtension = Path.GetExtension(request.ProfileImage.FileName).ToLowerInvariant();
+            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            var filePath = Path.Combine(_environment.ContentRootPath, "uploads", "profiles", uniqueFileName);
+            await using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await request.ProfileImage.CopyToAsync(stream);
+            }
+
+            issue.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+        }
+
+        var result = await repository.UpdateIssue(issue);
+        return result == 1
+            ? new ApiResponse<string>("Success")
+            : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
+    }
+
+    public async Task<ApiResponse<string>> DeleteAsync(int id)
+    {
+        var issue = await repository.GetIssue(q => q.Id == id);
+        if (issue == null)
+        {
+            return new ApiResponse<string>(HttpStatusCode.NotFound, "Issue not found");
+        }
+
+        var result = await repository.DeleteIssue(issue);
+        return result == 1
+            ? new ApiResponse<string>("Success")
+            : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
+    }
+}

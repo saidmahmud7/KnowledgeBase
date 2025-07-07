@@ -1,0 +1,288 @@
+2025-07-04 10:46:00.614 +03:00 [ERR] An error occurred using the connection to database 'KnowledgeBase' on server 'tcp://localhost:5432'.
+2025-07-04 10:46:01.814 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-04 10:46:01.828 +03:00 [INF] Applying migration '20250704074536_Initial'.
+2025-07-04 10:46:28.878 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-04 10:46:28.977 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-04 10:46:28.984 +03:00 [INF] Hosting environment: Development
+2025-07-04 10:46:28.986 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-04 10:46:46.105 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-04 10:46:46.195 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-04 10:46:46.206 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 103.4896ms
+2025-07-04 10:46:46.229 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-04 10:47:00.594 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger - null null
+2025-07-04 10:47:00.612 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger - 301 0 null 13.1069ms
+2025-07-04 10:47:00.632 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/index.html - null null
+2025-07-04 10:47:00.753 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/index.html - 200 null text/html;charset=utf-8 121.1867ms
+2025-07-04 10:47:00.812 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/swagger-ui.css - null null
+2025-07-04 10:47:00.814 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/swagger-ui-standalone-preset.js - null null
+2025-07-04 10:47:00.814 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/index.css - null null
+2025-07-04 10:47:00.814 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/index.js - null null
+2025-07-04 10:47:00.814 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/swagger-ui-bundle.js - null null
+2025-07-04 10:47:00.842 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-07-04 10:47:00.951 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/index.css - 200 202 text/css 136.9838ms
+2025-07-04 10:47:00.896 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-04 10:47:00.938 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/index.js - 200 null application/javascript;charset=utf-8 123.9044ms
+2025-07-04 10:47:00.895 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-04 10:47:00.980 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-04 10:47:00.985 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/swagger-ui.css - 200 154949 text/css 172.7423ms
+2025-07-04 10:47:00.986 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/swagger-ui-standalone-preset.js - 200 229223 text/javascript 172.3872ms
+2025-07-04 10:47:00.987 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/swagger-ui-bundle.js - 200 1485241 text/javascript 172.5186ms
+2025-07-04 10:47:01.234 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-04 10:47:01.276 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/favicon-32x32.png - null null
+2025-07-04 10:47:01.279 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-07-04 10:47:01.282 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/favicon-32x32.png - 200 628 image/png 5.5673ms
+2025-07-04 10:47:01.427 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 192.6079ms
+2025-07-04 10:47:16.965 +03:00 [INF] Application is shutting down...
+2025-07-04 10:48:34.984 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-04 10:48:35.019 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-04 10:48:35.021 +03:00 [INF] Hosting environment: Development
+2025-07-04 10:48:35.021 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-04 10:48:42.928 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-04 10:48:42.992 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-04 10:48:43.006 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 82.7993ms
+2025-07-04 10:48:43.025 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-04 10:48:47.338 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-04 10:48:47.484 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 146.8549ms
+2025-07-04 10:49:09.737 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5232/api/Department - application/json 19
+2025-07-04 10:49:09.745 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.Create (Web)'
+2025-07-04 10:49:09.783 +03:00 [INF] Route matched with {action = "Create", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.ApiResponse`1[System.String]] Create(Domain.Dto.DepartmentDto.AddDepartmentDto) on controller Web.Controller.DepartmentController (Web).
+2025-07-04 10:49:11.854 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.ApiResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 10:49:11.872 +03:00 [INF] Executed action Web.Controller.DepartmentController.Create (Web) in 2085.3451ms
+2025-07-04 10:49:11.874 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.Create (Web)'
+2025-07-04 10:49:11.882 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 2144.8004ms
+2025-07-04 10:49:36.596 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5232/api/Issue - multipart/form-data; boundary=----WebKitFormBoundaryNd9buI3TTvt5ke46 572363
+2025-07-04 10:49:36.604 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.Create (Web)'
+2025-07-04 10:49:36.652 +03:00 [INF] Route matched with {action = "Create", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.ApiResponse`1[System.String]] Create(Domain.Dto.IssueDto.AddIssueDto) on controller Web.Controller.IssueController (Web).
+2025-07-04 10:49:36.956 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.ApiResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 10:49:36.964 +03:00 [INF] Executed action Web.Controller.IssueController.Create (Web) in 309.8273ms
+2025-07-04 10:49:36.965 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.Create (Web)'
+2025-07-04 10:49:36.970 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5232/api/Issue - 200 null application/json; charset=utf-8 374.646ms
+2025-07-04 10:49:52.049 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5232/api/Solution - multipart/form-data; boundary=----WebKitFormBoundaryfBvhtuRWByUncE2X 462
+2025-07-04 10:49:52.075 +03:00 [INF] Executing endpoint 'Web.Controller.SolutionController.Create (Web)'
+2025-07-04 10:49:52.084 +03:00 [INF] Route matched with {action = "Create", controller = "Solution"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.ApiResponse`1[System.String]] Create(Domain.Dto.SolutionDto.AddSolutionDto) on controller Web.Controller.SolutionController (Web).
+2025-07-04 10:49:52.138 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.ApiResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 10:49:52.140 +03:00 [INF] Executed action Web.Controller.SolutionController.Create (Web) in 52.3571ms
+2025-07-04 10:49:52.141 +03:00 [INF] Executed endpoint 'Web.Controller.SolutionController.Create (Web)'
+2025-07-04 10:49:52.142 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5232/api/Solution - 200 null application/json; charset=utf-8 92.3749ms
+2025-07-04 10:49:58.289 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Solution - null null
+2025-07-04 10:49:58.297 +03:00 [INF] Executing endpoint 'Web.Controller.SolutionController.GetAll (Web)'
+2025-07-04 10:49:58.314 +03:00 [INF] Route matched with {action = "GetAll", controller = "Solution"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.SolutionDto.GetSolutionsDto]]] GetAll(Domain.Filter.SolutionFilter) on controller Web.Controller.SolutionController (Web).
+2025-07-04 10:49:58.529 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.SolutionDto.GetSolutionsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 10:49:58.548 +03:00 [INF] Executed action Web.Controller.SolutionController.GetAll (Web) in 231.2083ms
+2025-07-04 10:49:58.549 +03:00 [INF] Executed endpoint 'Web.Controller.SolutionController.GetAll (Web)'
+2025-07-04 10:49:58.550 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Solution - 200 null application/json; charset=utf-8 261.2763ms
+2025-07-04 10:51:01.182 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Issue - null null
+2025-07-04 10:51:01.245 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 10:51:01.309 +03:00 [INF] Route matched with {action = "GetAll", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.IssueDto.GetIssuesDto]]] GetAll(Domain.Filter.IssueFilter) on controller Web.Controller.IssueController (Web).
+2025-07-04 10:51:01.520 +03:00 [INF] Executed action Web.Controller.IssueController.GetAll (Web) in 208.4849ms
+2025-07-04 10:51:01.523 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 10:51:01.535 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Select[TSource,TResult](IEnumerable`1 source, Func`2 selector)
+   at Infrastructure.Services.IssueService.<>c.<GetAllIssueAsync>b__3_0(Issue i) in C:\Users\LENOVO\Desktop\KnowledgeBase\Infrastructure\Services\IssueService.cs:line 23
+   at System.Linq.Enumerable.ListSelectIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.ListSelectIterator`2.ToList()
+   at Infrastructure.Services.IssueService.GetAllIssueAsync(IssueFilter filter) in C:\Users\LENOVO\Desktop\KnowledgeBase\Infrastructure\Services\IssueService.cs:line 23
+   at Web.Controller.IssueController.GetAll(IssueFilter filter) in C:\Users\LENOVO\Desktop\KnowledgeBase\Web\Controller\IssueController.cs:line 14
+   at lambda_method218(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-04 10:51:01.750 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Issue - 500 null text/plain; charset=utf-8 576.335ms
+2025-07-04 10:51:49.308 +03:00 [INF] Application is shutting down...
+2025-07-04 10:54:11.753 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-04 10:54:11.788 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-04 10:54:11.790 +03:00 [INF] Hosting environment: Development
+2025-07-04 10:54:11.791 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-04 10:54:14.345 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-04 10:54:14.506 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-04 10:54:14.524 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 182.2224ms
+2025-07-04 10:54:14.573 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-04 10:54:21.119 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-04 10:54:21.334 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 215.7135ms
+2025-07-04 10:54:29.181 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Issue - null null
+2025-07-04 10:54:29.195 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 10:54:29.237 +03:00 [INF] Route matched with {action = "GetAll", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.IssueDto.GetIssuesDto]]] GetAll(Domain.Filter.IssueFilter) on controller Web.Controller.IssueController (Web).
+2025-07-04 10:54:30.726 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.IssueDto.GetIssuesDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 10:54:30.789 +03:00 [INF] Executed action Web.Controller.IssueController.GetAll (Web) in 1545.835ms
+2025-07-04 10:54:30.792 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 10:54:30.800 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Issue - 200 null application/json; charset=utf-8 1619.6933ms
+2025-07-04 11:04:46.141 +03:00 [INF] Application is shutting down...
+2025-07-04 11:08:26.101 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-04 11:08:26.161 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-04 11:08:26.162 +03:00 [INF] Hosting environment: Development
+2025-07-04 11:08:26.163 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-04 11:08:32.687 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-04 11:08:32.801 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-04 11:08:32.824 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 143.3552ms
+2025-07-04 11:08:32.862 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-04 11:28:30.372 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-04 11:28:30.457 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 100.3353ms
+2025-07-04 11:28:30.471 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-04 11:28:36.408 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-04 11:28:36.749 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 340.9843ms
+2025-07-04 11:42:59.014 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-04 11:42:59.126 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 120.6842ms
+2025-07-04 11:42:59.134 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-04 11:43:14.776 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Issue?Title=s - null null
+2025-07-04 11:43:14.833 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 11:43:14.922 +03:00 [INF] Route matched with {action = "GetAll", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.IssueDto.GetIssuesDto]]] GetAll(Domain.Filter.IssueFilter) on controller Web.Controller.IssueController (Web).
+2025-07-04 11:43:16.536 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.IssueDto.GetIssuesDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 11:43:16.604 +03:00 [INF] Executed action Web.Controller.IssueController.GetAll (Web) in 1678.2425ms
+2025-07-04 11:43:16.606 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 11:43:16.614 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Issue?Title=s - 200 null application/json; charset=utf-8 1838.0936ms
+2025-07-04 11:50:27.209 +03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5232/api/Issue/1 - null null
+2025-07-04 11:50:27.271 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.Delete (Web)'
+2025-07-04 11:50:27.377 +03:00 [INF] Route matched with {action = "Delete", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.ApiResponse`1[System.String]] Delete(Int32) on controller Web.Controller.IssueController (Web).
+2025-07-04 11:50:27.867 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.ApiResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 11:50:27.883 +03:00 [INF] Executed action Web.Controller.IssueController.Delete (Web) in 505.0874ms
+2025-07-04 11:50:27.885 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.Delete (Web)'
+2025-07-04 11:50:27.886 +03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5232/api/Issue/1 - 200 null application/json; charset=utf-8 682.7937ms
+2025-07-04 11:50:34.325 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Issue?Title=s - null null
+2025-07-04 11:50:34.331 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 11:50:34.336 +03:00 [INF] Route matched with {action = "GetAll", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.IssueDto.GetIssuesDto]]] GetAll(Domain.Filter.IssueFilter) on controller Web.Controller.IssueController (Web).
+2025-07-04 11:50:34.434 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.IssueDto.GetIssuesDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 11:50:34.436 +03:00 [INF] Executed action Web.Controller.IssueController.GetAll (Web) in 94.8783ms
+2025-07-04 11:50:34.438 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 11:50:34.440 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Issue?Title=s - 200 null application/json; charset=utf-8 114.4855ms
+2025-07-04 11:50:40.889 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Solution - null null
+2025-07-04 11:50:40.920 +03:00 [INF] Executing endpoint 'Web.Controller.SolutionController.GetAll (Web)'
+2025-07-04 11:50:40.929 +03:00 [INF] Route matched with {action = "GetAll", controller = "Solution"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.SolutionDto.GetSolutionsDto]]] GetAll(Domain.Filter.SolutionFilter) on controller Web.Controller.SolutionController (Web).
+2025-07-04 11:50:40.950 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.SolutionDto.GetSolutionsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 11:50:40.956 +03:00 [INF] Executed action Web.Controller.SolutionController.GetAll (Web) in 23.9558ms
+2025-07-04 11:50:40.957 +03:00 [INF] Executed endpoint 'Web.Controller.SolutionController.GetAll (Web)'
+2025-07-04 11:50:40.958 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Solution - 200 null application/json; charset=utf-8 69.4126ms
+2025-07-04 11:52:43.103 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5232/api/Issue - multipart/form-data; boundary=----WebKitFormBoundaryYjjSDITsx8SYzjdL 911
+2025-07-04 11:52:43.208 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.Create (Web)'
+2025-07-04 11:52:43.379 +03:00 [INF] Route matched with {action = "Create", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.ApiResponse`1[System.String]] Create(Domain.Dto.IssueDto.AddIssueDto) on controller Web.Controller.IssueController (Web).
+2025-07-04 11:52:44.174 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.ApiResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 11:52:44.184 +03:00 [INF] Executed action Web.Controller.IssueController.Create (Web) in 803.0788ms
+2025-07-04 11:52:44.188 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.Create (Web)'
+2025-07-04 11:52:44.191 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5232/api/Issue - 200 null application/json; charset=utf-8 1107.0208ms
+2025-07-04 11:53:07.656 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5232/api/Solution - multipart/form-data; boundary=----WebKitFormBoundaryd1EpTyqxoUgwumBH 458
+2025-07-04 11:53:07.661 +03:00 [INF] Executing endpoint 'Web.Controller.SolutionController.Create (Web)'
+2025-07-04 11:53:07.680 +03:00 [INF] Route matched with {action = "Create", controller = "Solution"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.ApiResponse`1[System.String]] Create(Domain.Dto.SolutionDto.AddSolutionDto) on controller Web.Controller.SolutionController (Web).
+2025-07-04 11:53:07.734 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.ApiResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 11:53:07.738 +03:00 [INF] Executed action Web.Controller.SolutionController.Create (Web) in 54.3102ms
+2025-07-04 11:53:07.739 +03:00 [INF] Executed endpoint 'Web.Controller.SolutionController.Create (Web)'
+2025-07-04 11:53:07.741 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5232/api/Solution - 200 null application/json; charset=utf-8 84.4337ms
+2025-07-04 11:53:26.898 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Issue - null null
+2025-07-04 11:53:26.904 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 11:53:26.939 +03:00 [INF] Route matched with {action = "GetAll", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.IssueDto.GetIssuesDto]]] GetAll(Domain.Filter.IssueFilter) on controller Web.Controller.IssueController (Web).
+2025-07-04 11:53:27.024 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.IssueDto.GetIssuesDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 11:53:27.035 +03:00 [INF] Executed action Web.Controller.IssueController.GetAll (Web) in 88.7774ms
+2025-07-04 11:53:27.037 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 11:53:27.039 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Issue - 200 null application/json; charset=utf-8 141.0008ms
+2025-07-04 11:53:39.920 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Issue?Title=Rou - null null
+2025-07-04 11:53:39.926 +03:00 [INF] Executing endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 11:53:39.945 +03:00 [INF] Route matched with {action = "GetAll", controller = "Issue"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.IssueDto.GetIssuesDto]]] GetAll(Domain.Filter.IssueFilter) on controller Web.Controller.IssueController (Web).
+2025-07-04 11:53:39.961 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.IssueDto.GetIssuesDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 11:53:39.963 +03:00 [INF] Executed action Web.Controller.IssueController.GetAll (Web) in 17.082ms
+2025-07-04 11:53:39.965 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.GetAll (Web)'
+2025-07-04 11:53:39.966 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Issue?Title=Rou - 200 null application/json; charset=utf-8 46ms
+2025-07-04 13:36:31.353 +03:00 [INF] Application is shutting down...
+2025-07-04 15:52:36.811 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-04 15:52:36.849 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-04 15:52:36.850 +03:00 [INF] Hosting environment: Development
+2025-07-04 15:52:36.852 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-04 15:52:41.380 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-04 15:52:41.486 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-04 15:52:41.505 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 133.5485ms
+2025-07-04 15:52:41.545 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-04 15:52:45.300 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-04 15:52:45.488 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 188.9813ms
+2025-07-04 16:41:58.579 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department - null null
+2025-07-04 16:41:58.795 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-04 16:41:58.926 +03:00 [INF] Route matched with {action = "GetAll", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]]] GetAll(Domain.Filter.DepartmentFilter) on controller Web.Controller.DepartmentController (Web).
+2025-07-04 16:42:01.191 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 16:42:01.265 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetAll (Web) in 2333.008ms
+2025-07-04 16:42:01.267 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-04 16:42:01.276 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 2707.5533ms
+2025-07-04 16:45:30.579 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department - null null
+2025-07-04 16:45:30.721 +03:00 [INF] CORS policy execution successful.
+2025-07-04 16:45:30.738 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-04 16:45:30.759 +03:00 [INF] Route matched with {action = "GetAll", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]]] GetAll(Domain.Filter.DepartmentFilter) on controller Web.Controller.DepartmentController (Web).
+2025-07-04 16:45:31.219 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-04 16:45:31.239 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetAll (Web) in 477.7987ms
+2025-07-04 16:45:31.241 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-04 16:45:31.245 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 672.5264ms
+2025-07-07 08:03:10.685 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-07 08:03:10.722 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-07 08:03:10.724 +03:00 [INF] Hosting environment: Development
+2025-07-07 08:03:10.726 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-07 08:04:53.700 +03:00 [INF] Application is shutting down...
+2025-07-07 08:33:10.960 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-07 08:33:11.020 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-07 08:33:11.024 +03:00 [INF] Hosting environment: Development
+2025-07-07 08:33:11.026 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-07 08:34:18.905 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Departments - null null
+2025-07-07 08:34:19.133 +03:00 [INF] CORS policy execution successful.
+2025-07-07 08:34:19.143 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-07 08:34:19.170 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Departments - 404 0 null 282.3043ms
+2025-07-07 08:34:19.225 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/api/Departments, Response status code: 404
+2025-07-07 08:34:21.479 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Departments - null null
+2025-07-07 08:34:21.493 +03:00 [INF] CORS policy execution successful.
+2025-07-07 08:34:21.496 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Departments - 404 0 null 18.4875ms
+2025-07-07 08:34:21.505 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/api/Departments, Response status code: 404
+2025-07-07 08:34:22.511 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Issues - null null
+2025-07-07 08:34:22.516 +03:00 [INF] CORS policy execution successful.
+2025-07-07 08:34:22.518 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Issues - 404 0 null 6.556ms
+2025-07-07 08:34:22.522 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/api/Issues, Response status code: 404
+2025-07-07 08:34:23.315 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Solutions - null null
+2025-07-07 08:34:23.324 +03:00 [INF] CORS policy execution successful.
+2025-07-07 08:34:23.328 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Solutions - 404 0 null 12.5013ms
+2025-07-07 08:34:23.337 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/api/Solutions, Response status code: 404
+2025-07-07 08:34:52.279 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-07 08:34:52.287 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 7.7467ms
+2025-07-07 08:34:52.305 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-07 08:34:53.206 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-07 08:34:53.208 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 1.7769ms
+2025-07-07 08:34:53.226 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-07 08:35:01.912 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-07 08:35:02.096 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 184.2638ms
+2025-07-07 08:35:08.337 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department - null null
+2025-07-07 08:35:08.345 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-07 08:35:08.399 +03:00 [INF] Route matched with {action = "GetAll", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]]] GetAll(Domain.Filter.DepartmentFilter) on controller Web.Controller.DepartmentController (Web).
+2025-07-07 08:35:11.347 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-07 08:35:11.433 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetAll (Web) in 3030.8256ms
+2025-07-07 08:35:11.439 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-07 08:35:11.451 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 3113.6523ms
+2025-07-07 08:38:07.454 +03:00 [INF] Application is shutting down...
+2025-07-07 09:27:14.098 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-07 09:27:14.161 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-07 09:27:14.163 +03:00 [INF] Hosting environment: Development
+2025-07-07 09:27:14.164 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-07 09:37:21.263 +03:00 [INF] Application is shutting down...
+2025-07-07 09:39:03.246 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-07 09:39:03.287 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-07 09:39:03.288 +03:00 [INF] Hosting environment: Development
+2025-07-07 09:39:03.289 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-07 09:39:20.537 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department - null null
+2025-07-07 09:39:20.566 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-07 09:39:20.570 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-07 09:39:20.596 +03:00 [INF] Route matched with {action = "GetAll", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]]] GetAll(Domain.Filter.DepartmentFilter) on controller Web.Controller.DepartmentController (Web).
+2025-07-07 09:39:22.087 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-07 09:39:22.150 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetAll (Web) in 1547.0571ms
+2025-07-07 09:39:22.156 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-07 09:39:22.169 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 1632.0513ms
+2025-07-07 09:39:37.198 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department - null null
+2025-07-07 09:39:37.205 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-07 09:39:37.207 +03:00 [INF] Route matched with {action = "GetAll", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]]] GetAll(Domain.Filter.DepartmentFilter) on controller Web.Controller.DepartmentController (Web).
+2025-07-07 09:39:37.247 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-07 09:39:37.249 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetAll (Web) in 40.236ms
+2025-07-07 09:39:37.250 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-07 09:39:37.251 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 53.5073ms
+2025-07-07 09:49:55.754 +03:00 [INF] Application is shutting down...
