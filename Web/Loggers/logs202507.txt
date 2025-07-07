@@ -286,3 +286,26 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'source')
 2025-07-07 09:39:37.250 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
 2025-07-07 09:39:37.251 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 53.5073ms
 2025-07-07 09:49:55.754 +03:00 [INF] Application is shutting down...
+2025-07-07 13:45:04.433 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-07 13:45:04.480 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-07 13:45:04.481 +03:00 [INF] Hosting environment: Development
+2025-07-07 13:45:04.482 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-07 13:45:37.737 +03:00 [INF] Application is shutting down...
+2025-07-07 15:16:27.598 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-07 15:16:27.647 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-07 15:16:27.649 +03:00 [INF] Hosting environment: Development
+2025-07-07 15:16:27.650 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-07 15:16:33.454 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-07 15:16:33.526 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-07 15:16:33.541 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 404 0 null 91.2002ms
+2025-07-07 15:16:33.561 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/, Response status code: 404
+2025-07-07 15:16:39.383 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-07 15:16:39.409 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.7822ms
+2025-07-07 15:16:46.958 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department - null null
+2025-07-07 15:16:46.981 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-07 15:16:47.015 +03:00 [INF] Route matched with {action = "GetAll", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]]] GetAll(Domain.Filter.DepartmentFilter) on controller Web.Controller.DepartmentController (Web).
+2025-07-07 15:16:51.714 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-07 15:16:51.787 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetAll (Web) in 4767.1781ms
+2025-07-07 15:16:51.790 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-07 15:16:51.799 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 4841.0341ms
+2025-07-07 15:16:57.834 +03:00 [INF] Application is shutting down...
