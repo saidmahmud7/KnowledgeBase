@@ -357,3 +357,12 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'source')
 2025-07-08 14:07:32.159 +03:00 [INF] Hosting environment: Development
 2025-07-08 14:07:32.160 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
 2025-07-08 14:07:36.057 +03:00 [INF] Application is shutting down...
+2025-07-08 14:47:20.333 +03:00 [ERR] An error occurred using the connection to database 'knowledgebase_slwq' on server 'tcp://dpg-d1mdhh2dbo4c73f67gig-a:5432'.
+2025-07-08 14:53:16.566 +03:00 [ERR] An error occurred using the connection to database 'knowledgebase_slwq' on server 'tcp://dpg-d1mdhh2dbo4c73f67gig-a:5432'.
+2025-07-08 15:00:51.969 +03:00 [ERR] An error occurred using the connection to database 'knowledgebase_slwq' on server 'tcp://dpg-d1mdhh2dbo4c73f67gig-a:5432'.
+2025-07-08 15:14:10.150 +03:00 [ERR] An error occurred using the connection to database 'knowledgebase_slwq' on server 'tcp://dpg-d1mdhh2dbo4c73f67gig-a:5432'.
+2025-07-08 15:26:09.282 +03:00 [ERR] An error occurred using the connection to database 'knowledgebase_slwq' on server 'tcp://dpg-d1mdhh2dbo4c73f67gig-a:5432'.
+2025-07-08 15:50:02.528 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-08 15:50:03.174 +03:00 [INF] Applying migration '20250704074536_Initial'.
+2025-07-08 15:50:04.898 +03:00 [INF] Applying migration '20250708114643_Initial2'.
+2025-07-08 15:50:05.170 +03:00 [INF] Applying migration '20250708124921_New'.
