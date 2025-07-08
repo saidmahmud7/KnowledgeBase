@@ -35,17 +35,17 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ✅ Включаем Swagger для всех сред, включая Production
+app.UseSwagger();
+app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+
+// 💡 Если всё же хочешь сохранять swagger.json — оставь в if
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
-
     using var scope = app.Services.CreateScope();
     var swaggerProvider = scope.ServiceProvider.GetRequiredService<ISwaggerProvider>();
     var swagger = swaggerProvider.GetSwagger("v1");
 
-    // Сохранение в JSON
     var swaggerJson = swagger.SerializeAsJson(Microsoft.OpenApi.OpenApiSpecVersion.OpenApi3_0);
     File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "swagger.json"), swaggerJson);
 }
@@ -54,13 +54,13 @@ app.UseRouting();
 
 app.UseCors("AllowReactApp");
 
-// app.UseHttpsRedirection();  // <- отключено для Render.com
+// app.UseHttpsRedirection(); // отключено для Render
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-// Добавил простой маршрут для проверки доступности
+// ✅ Простая проверка маршрута
 app.MapGet("/", () => "Hello from KnowledgeBase!");
 
 app.Run();
