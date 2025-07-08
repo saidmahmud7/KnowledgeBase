@@ -17,6 +17,7 @@ Log.Logger = new LoggerConfiguration()
     })
     .CreateLogger();
 builder.Host.UseSerilog();
+builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddServices(builder.Configuration);
@@ -26,7 +27,7 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("*") 
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod(); 
     });
 });
 var app = builder.Build();
