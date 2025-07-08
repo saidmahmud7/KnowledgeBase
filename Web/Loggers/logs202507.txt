@@ -352,3 +352,8 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'source')
 2025-07-08 08:11:03.938 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
 2025-07-08 08:11:03.939 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department?Name=g - 200 null application/json; charset=utf-8 53.8228ms
 2025-07-08 09:48:20.494 +03:00 [INF] Application is shutting down...
+2025-07-08 14:07:32.089 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-08 14:07:32.157 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-08 14:07:32.159 +03:00 [INF] Hosting environment: Development
+2025-07-08 14:07:32.160 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-08 14:07:36.057 +03:00 [INF] Application is shutting down...
