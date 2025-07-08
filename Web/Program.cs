@@ -2,6 +2,8 @@ using Infrastructure.Extensions;
 using Microsoft.OpenApi.Extensions;
 using Serilog;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.EntityFrameworkCore; // ✅ добавь
+using Infrastructure.Data; // ✅ замените на свой namespace
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,11 +37,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// ✅ Включаем Swagger для всех сред, включая Production
 app.UseSwagger();
 app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
 
-// 💡 Если всё же хочешь сохранять swagger.json — оставь в if
 if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();
@@ -60,7 +60,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// ✅ Простая проверка маршрута
 app.MapGet("/", () => "Hello from KnowledgeBase!");
+
+// 🟢 ✅ Автоматическое применение миграций
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<DataContext>(); // ❗️ замени на своё имя
+    db.Database.Migrate();
+}
 
 app.Run();
