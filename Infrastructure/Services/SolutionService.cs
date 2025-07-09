@@ -61,23 +61,35 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
             var fileExtension = Path.GetExtension(request.ProfileImage.FileName).ToLowerInvariant();
+            if (!allowedExtensions.Contains(fileExtension))
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid file type");
+
+            if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB limit
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
+
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
 
-            var uploadsFolder = Path.Combine(_environment.ContentRootPath, "uploads", "profiles");
-
-            // ✅ Создаём папку, если её нет
-            if (!Directory.Exists(uploadsFolder))
-                Directory.CreateDirectory(uploadsFolder);
-
-            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            await using (var stream = new FileStream(filePath, FileMode.Create))
+            try
             {
-                await request.ProfileImage.CopyToAsync(stream);
-            }
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
 
-            solution.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                await using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await request.ProfileImage.CopyToAsync(stream);
+                }
+
+                solution.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+            }
+            catch (IOException ex)
+            {
+                return new ApiResponse<string>(HttpStatusCode.InternalServerError, $"File upload failed: {ex.Message}");
+            }
         }
 
         var result = await repository.CreateSolution(solution);
@@ -88,27 +100,44 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
     public async Task<ApiResponse<string>> UpdateAsync(int id, UpdateSolutionDto request)
     {
+        if (id <= 0) return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid ID");
         var solution = await repository.GetSolution(s => s.Id == id);
-        if (solution == null)
-        {
-            return new ApiResponse<string>(HttpStatusCode.NotFound, "Solution Not Found");
-        }
-
-        solution.Id = request.Id;
-        solution.Description = request.Description;
-        solution.CreatedAt = request.CreatedAt;
-        solution.IssueId = request.IssueId;
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
             var fileExtension = Path.GetExtension(request.ProfileImage.FileName).ToLowerInvariant();
-            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
-            var filePath = Path.Combine(_environment.ContentRootPath, "uploads", "profiles", uniqueFileName);
-            await using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await request.ProfileImage.CopyToAsync(stream);
-            }
+            if (!allowedExtensions.Contains(fileExtension))
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid file type");
 
-            solution.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+            if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB limit
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
+
+            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            try
+            {
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                if (!string.IsNullOrEmpty(solution.ProfileImagePath))
+                {
+                    var oldFilePath = Path.Combine(_environment.WebRootPath, solution.ProfileImagePath.TrimStart('/'));
+                    if (File.Exists(oldFilePath)) File.Delete(oldFilePath);
+                }
+
+                await using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await request.ProfileImage.CopyToAsync(stream);
+                }
+
+                solution.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+            }
+            catch (IOException ex)
+            {
+                return new ApiResponse<string>(HttpStatusCode.InternalServerError, $"File upload failed: {ex.Message}");
+            }
         }
 
         var result = await repository.UpdateSolution(solution);
@@ -123,7 +152,22 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
         if (solution == null)
         {
             return new ApiResponse<string>(HttpStatusCode.NotFound, "Solution Not Found");
-        } 
+        }
+
+        if (!string.IsNullOrEmpty(solution.ProfileImagePath))
+        {
+            var filePath = Path.Combine(_environment.WebRootPath, solution.ProfileImagePath.TrimStart('/'));
+            try
+            {
+                if (File.Exists(filePath)) File.Delete(filePath);
+            }
+            catch (IOException ex)
+            {
+                return new ApiResponse<string>(HttpStatusCode.InternalServerError,
+                    $"File deletion failed: {ex.Message}");
+            }
+        }
+
         var result = await repository.DeleteSolution(solution);
         return result == 1
             ? new ApiResponse<string>("Success")

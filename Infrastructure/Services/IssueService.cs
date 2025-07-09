@@ -79,22 +79,36 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
         };
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
             var fileExtension = Path.GetExtension(request.ProfileImage.FileName).ToLowerInvariant();
+
+            if (!allowedExtensions.Contains(fileExtension))
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid file type");
+
+            if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB limit
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
+
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
 
-            var uploadsFolder = Path.Combine(_environment.ContentRootPath, "uploads", "profiles");
-
-            if (!Directory.Exists(uploadsFolder))
-                Directory.CreateDirectory(uploadsFolder);
-
-            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            await using (var stream = new FileStream(filePath, FileMode.Create))
+            try
             {
-                await request.ProfileImage.CopyToAsync(stream);
-            }
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
 
-            issue.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                await using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await request.ProfileImage.CopyToAsync(stream);
+                }
+
+                issue.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+            }
+            catch (IOException ex)
+            {
+                return new ApiResponse<string>(HttpStatusCode.InternalServerError, $"File upload failed: {ex.Message}");
+            }
         }
 
         var result = await repository.CreateIssue(issue);
@@ -105,6 +119,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
 
     public async Task<ApiResponse<string>> UpdateAsync(int id, UpdateIssueDto request)
     {
+        if (id <= 0) return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid ID");
         var issue = await repository.GetIssue(i => i.Id == id);
         if (issue == null)
         {
@@ -118,15 +133,40 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
         issue.DepartmentId = request.DepartmentId;
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
             var fileExtension = Path.GetExtension(request.ProfileImage.FileName).ToLowerInvariant();
-            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
-            var filePath = Path.Combine(_environment.ContentRootPath, "uploads", "profiles", uniqueFileName);
-            await using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await request.ProfileImage.CopyToAsync(stream);
-            }
+            if (!allowedExtensions.Contains(fileExtension))
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid file type");
 
-            issue.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+            if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB limit
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
+
+            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            try
+            {
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                if (!string.IsNullOrEmpty(issue.ProfileImagePath))
+                {
+                    var oldFilePath = Path.Combine(_environment.WebRootPath, issue.ProfileImagePath.TrimStart('/'));
+                    if (File.Exists(oldFilePath)) File.Delete(oldFilePath);
+                }
+
+                await using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await request.ProfileImage.CopyToAsync(stream);
+                }
+
+                issue.ProfileImagePath = $"/uploads/profiles/{uniqueFileName}";
+            }
+            catch (IOException ex)
+            {
+                return new ApiResponse<string>(HttpStatusCode.InternalServerError, $"File upload failed: {ex.Message}");
+            }
         }
 
         var result = await repository.UpdateIssue(issue);
@@ -141,6 +181,20 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
         if (issue == null)
         {
             return new ApiResponse<string>(HttpStatusCode.NotFound, "Issue not found");
+        }
+
+        if (!string.IsNullOrEmpty(issue.ProfileImagePath))
+        {
+            var filePath = Path.Combine(_environment.WebRootPath, issue.ProfileImagePath.TrimStart('/'));
+            try
+            {
+                if (File.Exists(filePath)) File.Delete(filePath);
+            }
+            catch (IOException ex)
+            {
+                return new ApiResponse<string>(HttpStatusCode.InternalServerError,
+                    $"File deletion failed: {ex.Message}");
+            }
         }
 
         var result = await repository.DeleteIssue(issue);

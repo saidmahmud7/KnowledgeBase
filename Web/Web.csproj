@@ -29,4 +29,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\uploads\profiles\1b56b913-c8db-4cf7-afeb-0c17624db84b.jpg" />
+  </ItemGroup>
+
 </Project>
