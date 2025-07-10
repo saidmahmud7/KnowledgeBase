@@ -22,7 +22,7 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
 
     public async Task<Department?> GetDepartment(Expression<Func<Department, bool>>? filter = null)
     {
-        var query = context.Departments.AsQueryable();
+        var query = context.Departments.Include(d => d.Issues) .AsQueryable();
 
         if (filter != null)
         {

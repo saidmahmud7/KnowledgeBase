@@ -401,3 +401,53 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'source')
 2025-07-09 09:14:04.710 +03:00 [INF] Executed endpoint 'Web.Controller.IssueController.Create (Web)'
 2025-07-09 09:14:04.712 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5232/api/Issue - 200 null application/json; charset=utf-8 490.3813ms
 2025-07-09 09:14:08.556 +03:00 [INF] Application is shutting down...
+2025-07-10 08:05:22.157 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 08:05:22.643 +03:00 [INF] No migrations were applied. The database is already up to date.
+2025-07-10 08:05:22.964 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-10 08:05:22.968 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-10 08:05:22.971 +03:00 [INF] Hosting environment: Development
+2025-07-10 08:05:22.973 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-10 08:05:26.664 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-10 08:05:26.725 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-07-10 08:05:26.743 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-07-10 08:05:26.763 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 200 null text/plain; charset=utf-8 102.0022ms
+2025-07-10 08:05:27.460 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/favicon.ico - null null
+2025-07-10 08:05:27.504 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/favicon.ico - 404 0 null 43.0908ms
+2025-07-10 08:05:27.513 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5232/favicon.ico, Response status code: 404
+2025-07-10 08:05:32.285 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-10 08:05:32.335 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 49.878ms
+2025-07-10 08:05:41.656 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department/1 - null null
+2025-07-10 08:05:41.664 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetById (Web)'
+2025-07-10 08:05:41.704 +03:00 [INF] Route matched with {action = "GetById", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.ApiResponse`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]] GetById(Int32) on controller Web.Controller.DepartmentController (Web).
+2025-07-10 08:05:42.510 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.ApiResponse`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-10 08:05:42.567 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetById (Web) in 856.3342ms
+2025-07-10 08:05:42.570 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetById (Web)'
+2025-07-10 08:05:42.577 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department/1 - 200 null application/json; charset=utf-8 921.4001ms
+2025-07-10 08:05:49.772 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department - null null
+2025-07-10 08:05:49.780 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-10 08:05:49.806 +03:00 [INF] Route matched with {action = "GetAll", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.PaginationResponse`1[System.Collections.Generic.List`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]]] GetAll(Domain.Filter.DepartmentFilter) on controller Web.Controller.DepartmentController (Web).
+2025-07-10 08:05:50.236 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.PaginationResponse`1[[System.Collections.Generic.List`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-10 08:05:50.243 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetAll (Web) in 433.642ms
+2025-07-10 08:05:50.244 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetAll (Web)'
+2025-07-10 08:05:50.247 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department - 200 null application/json; charset=utf-8 473.2995ms
+2025-07-10 08:09:39.144 +03:00 [INF] Application is shutting down...
+2025-07-10 08:10:09.060 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 08:10:09.562 +03:00 [INF] No migrations were applied. The database is already up to date.
+2025-07-10 08:10:09.879 +03:00 [INF] Now listening on: http://localhost:5232
+2025-07-10 08:10:09.884 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-10 08:10:09.887 +03:00 [INF] Hosting environment: Development
+2025-07-10 08:10:09.890 +03:00 [INF] Content root path: C:\Users\LENOVO\Desktop\KnowledgeBase\Web
+2025-07-10 08:10:12.601 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/ - null null
+2025-07-10 08:10:12.638 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-07-10 08:10:12.648 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-07-10 08:10:12.652 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/ - 200 null text/plain; charset=utf-8 51.7843ms
+2025-07-10 08:10:23.226 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - null null
+2025-07-10 08:10:23.266 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.2922ms
+2025-07-10 08:10:32.612 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5232/api/Department/1 - null null
+2025-07-10 08:10:32.620 +03:00 [INF] Executing endpoint 'Web.Controller.DepartmentController.GetById (Web)'
+2025-07-10 08:10:32.655 +03:00 [INF] Route matched with {action = "GetById", controller = "Department"}. Executing controller action with signature System.Threading.Tasks.Task`1[Infrastructure.Response.ApiResponse`1[Domain.Dto.DepartmentDto.GetDepartmentsDto]] GetById(Int32) on controller Web.Controller.DepartmentController (Web).
+2025-07-10 08:10:33.398 +03:00 [INF] Executing ObjectResult, writing value of type 'Infrastructure.Response.ApiResponse`1[[Domain.Dto.DepartmentDto.GetDepartmentsDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-10 08:10:33.459 +03:00 [INF] Executed action Web.Controller.DepartmentController.GetById (Web) in 794.8456ms
+2025-07-10 08:10:33.461 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetById (Web)'
+2025-07-10 08:10:33.470 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department/1 - 200 null application/json; charset=utf-8 857.3062ms
+2025-07-10 08:10:38.474 +03:00 [INF] Application is shutting down...

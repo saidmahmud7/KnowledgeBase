@@ -80,22 +80,29 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
             var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
-            var fileExtension = Path.GetExtension(request.ProfileImage.FileName).ToLowerInvariant();
-
+            //извлекает например photo.png -> .png 
+            var fileExtension = Path.GetExtension(request.ProfileImage.FileName).ToLowerInvariant();//-чтобы не зависить от регистра .JPG->.jpg
+            
+             //проверяет allowedExtensions == fileExtension 
             if (!allowedExtensions.Contains(fileExtension))
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid file type");
-
+            
             if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB limit
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
-
+            //задет уникальное имя чтоб не было конфликта 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            //это путь к папке куда сохранится 
             var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
 
             try
             {
+                //Проверяем, существует ли уже папка по пути uploadsFolder если нет то создает папку 
                 if (!Directory.Exists(uploadsFolder))
-                    Directory.CreateDirectory(uploadsFolder);
-
+                    Directory.CreateDirectory(uploadsFolder);  
+                //Формируем абсолютный путь к файлу, куда он будет записан.
+                //uploadsFolder = "C:\\MyApp\\wwwroot\\uploads\\profiles"
+                //uniqueFileName = "a3e1f2c9-fab6-4b8e-a153.png"
+                //filePath = "C:\\MyApp\\wwwroot\\uploads\\profiles\\a3e1f2c9-fab6-4b8e-a153.png"
                 var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
                 await using (var stream = new FileStream(filePath, FileMode.Create))
@@ -138,7 +145,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             if (!allowedExtensions.Contains(fileExtension))
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid file type");
 
-            if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB limit
+            if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB 
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";

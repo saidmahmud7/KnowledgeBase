@@ -16,5 +16,5 @@ public class Issue
     public string? ProfileImagePath { get; set; }
     public int DepartmentId { get; set; }
     public Department Department { get; set; }
-    public List<Solution> Solutions { get; set; }
+    public List<Solution>? Solutions { get; set; }
 }

@@ -11,5 +11,5 @@ public class GetIssuesDto
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public string? ProfileImagePath { get; set; }
     public int DepartmentId { get; set; }
-    public List<GetSolutionsDto> Solutions { get; set; }
+    public List<GetSolutionsDto>? Solutions { get; set; }
 }
