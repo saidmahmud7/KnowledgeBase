@@ -70,7 +70,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
 
             try
             {
@@ -113,7 +113,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
             var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
             try

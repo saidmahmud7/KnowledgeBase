@@ -92,7 +92,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             //задет уникальное имя чтоб не было конфликта 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
             //это путь к папке куда сохранится 
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
 
             try
             {
@@ -149,7 +149,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
             var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
             try
