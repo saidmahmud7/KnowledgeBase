@@ -27,7 +27,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             Description = i.Description,
             CreatedAt = i.CreatedAt,
             ProfileImagePath = i.ProfileImagePath,
-            DepartmentId = i.DepartmentId,
+            CategoryId = i.CategoryId,
             Solutions = i.Solutions?.Select(s => new GetSolutionsDto()
             {
                 Id = s.Id,
@@ -55,7 +55,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             Description = issue.Description,
             CreatedAt = issue.CreatedAt,
             ProfileImagePath = issue.ProfileImagePath,
-            DepartmentId = issue.DepartmentId,
+            CategoryId = issue.CategoryId,
             Solutions = issue.Solutions?.Select(s => new GetSolutionsDto()
             {
                 Id = s.Id,
@@ -75,7 +75,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             Title = request.Title,
             Description = request.Description,
             CreatedAt = DateTime.UtcNow,
-            DepartmentId = request.DepartmentId,
+            CategoryId = request.CategoryId,
         };
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
@@ -138,7 +138,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
         issue.Title = request.Title;
         issue.Description = request.Description;
         issue.CreatedAt = request.CreatedAt;
-        issue.DepartmentId = request.DepartmentId;
+        issue.CategoryId = request.CategoryId;
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
             var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };

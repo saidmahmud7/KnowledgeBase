@@ -1,8 +1,10 @@
 using Infrastructure.Data;
 using Infrastructure.Interfaces;
+using Infrastructure.Repositories.CategoryRepositories;
 using Infrastructure.Repositories.DepartmentRepositories;
 using Infrastructure.Repositories.IssueRepositories;
 using Infrastructure.Repositories.SolutionRepositories;
+using Infrastructure.Repositories.SubDepartmentRepositories;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,5 +27,11 @@ public static class RegisterService
         
         services.AddScoped<ISolutionRepository, SolutionRepository>();
         services.AddScoped<ISolutionService, SolutionService>();
+        
+        services.AddScoped<ISubDepartmentRepository, SubDepartmentRepository>();
+        services.AddScoped<ISubDepartmentService, SubDepartmentService>();
+        
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ICategoryService, CategoryService>();
     }
 }

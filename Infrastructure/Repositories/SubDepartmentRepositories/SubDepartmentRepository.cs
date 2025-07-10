@@ -5,24 +5,25 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Infrastructure.Repositories.DepartmentRepositories;
+namespace Infrastructure.Repositories.SubDepartmentRepositories;
 
-public class DepartmentRepository(DataContext context, ILogger<DepartmentRepository> logger) : IDepartmentRepository
+public class SubDepartmentRepository(DataContext context, ILogger<SubDepartmentRepository> logger)
+    : ISubDepartmentRepository
 {
-    public async Task<List<Department>> GetAll(DepartmentFilter filter)
+    public async Task<List<SubDepartment?>> GetAll(SubDepartmentFilter filter)
     {
-        var query = context.Departments.Include(i => i.SubDepartments).AsQueryable();
-        
+        var query = context.SubDepartments.Include(c => c.Categories).AsQueryable();
+
         if (!string.IsNullOrEmpty(filter.Name))
             query = query.Where(e => e.Name.ToLower().Trim().Contains(filter.Name.ToLower().Trim()));
-        
-        var departments = await query.ToListAsync();
-        return departments;
+
+        var subDepartments = await query.ToListAsync();
+        return subDepartments;
     }
 
-    public async Task<Department?> GetDepartment(Expression<Func<Department, bool>>? filter = null)
+    public async Task<SubDepartment?> GetSubDepartment(Expression<Func<SubDepartment, bool>>? filter = null)
     {
-        var query = context.Departments.Include(d => d.SubDepartments) .AsQueryable();
+        var query = context.SubDepartments.Include(d => d.Categories).AsQueryable();
 
         if (filter != null)
         {
@@ -32,11 +33,11 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         return await query.FirstOrDefaultAsync();
     }
 
-    public async Task<int> CreateDepartment(Department request)
+    public async Task<int> CreateSubDepartment(SubDepartment request)
     {
         try
         {
-            await context.Departments.AddAsync(request);
+            await context.SubDepartments.AddAsync(request);
             return await context.SaveChangesAsync();
         }
         catch (Exception e)
@@ -46,11 +47,11 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         }
     }
 
-    public async Task<int> UpdateDepartment(Department request)
+    public async Task<int> UpdateSubDepartment(SubDepartment request)
     {
         try
         {
-            context.Departments.Update(request);
+            context.SubDepartments.Update(request);
             return await context.SaveChangesAsync();
         }
         catch (Exception e)
@@ -60,11 +61,11 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         }
     }
 
-    public async Task<int> DeleteDepartment(Department request)
+    public async Task<int> DeleteSubDepartment(SubDepartment request)
     {
         try
         {
-            context.Departments.Remove(request);
+            context.SubDepartments.Remove(request);
             return await context.SaveChangesAsync();
         }
         catch (Exception e)

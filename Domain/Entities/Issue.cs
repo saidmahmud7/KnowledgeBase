@@ -14,7 +14,7 @@ public class Issue
     [NotMapped]
     public IFormFile? ProfileImage { get; set; }
     public string? ProfileImagePath { get; set; }
-    public int DepartmentId { get; set; }
-    public Department Department { get; set; }
+    public int CategoryId { get; set; }
+    public Category Category { get; set; }
     public List<Solution>? Solutions { get; set; }
 }

@@ -1,6 +1,7 @@
 using System.Net;
 using Domain.Dto.DepartmentDto;
 using Domain.Dto.IssueDto;
+using Domain.Dto.SubDepartmentDto;
 using Domain.Entities;
 using Domain.Filter;
 using Infrastructure.Interfaces;
@@ -23,14 +24,11 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
         {
             Id = d.Id,
             Name = d.Name,
-            Issues = d.Issues.Select(i => new GetIssuesDto()
+            SubDepartments = d.SubDepartments?.Select(i => new GetSubDepartmentDto()
             {
                 Id = i.Id,
-                Title = i.Title,
-                Description = i.Description,
-                CreatedAt = i.CreatedAt,
-                ProfileImagePath = i.ProfileImagePath,
-                DepartmentId = i.DepartmentId,
+                Name = i.Name,
+                DepartmentId = i.DepartmentId
             }).ToList()
         }).ToList();
         return new PaginationResponse<List<GetDepartmentsDto>>(result, totalRecords, filter.PageNumber,
@@ -49,13 +47,10 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
         {
             Id = department.Id,
             Name = department.Name,
-            Issues = department.Issues.Select(i => new GetIssuesDto()
+            SubDepartments = department.SubDepartments?.Select(i => new GetSubDepartmentDto()
             {
                 Id = i.Id,
-                Title = i.Title,
-                Description = i.Description,
-                CreatedAt = i.CreatedAt,
-                ProfileImagePath = i.ProfileImagePath,
+                Name = i.Name,
                 DepartmentId = i.DepartmentId,
             }).ToList()
         };

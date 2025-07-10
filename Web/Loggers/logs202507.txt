@@ -453,3 +453,30 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'source')
 2025-07-10 08:10:38.474 +03:00 [INF] Application is shutting down...
 2025-07-10 11:05:20.213 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
 2025-07-10 11:05:20.757 +03:00 [INF] Applying migration '20250710080455_InitialCreate'.
+2025-07-10 14:48:48.029 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 14:48:48.489 +03:00 [INF] Applying migration '20250710114819_AddModel'.
+2025-07-10 14:52:21.769 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 14:52:22.248 +03:00 [INF] Applying migration '20250710115157_AddModel'.
+2025-07-10 14:56:21.865 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 14:56:22.327 +03:00 [INF] Applying migration '20250710115545_FixMismatch'.
+2025-07-10 15:01:53.540 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 15:01:54.864 +03:00 [INF] Applying migration '20250710115813_AddNewEntitiesAndRelations'.
+2025-07-10 15:06:36.206 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 15:06:36.666 +03:00 [INF] Applying migration '20250710120542_AddNewEntitiesAndRelations'.
+2025-07-10 15:07:26.757 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 15:07:27.235 +03:00 [INF] Applying migration '20250710120542_AddNewEntitiesAndRelations'.
+2025-07-10 15:21:36.118 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 15:21:36.595 +03:00 [INF] Applying migration '20250710122055_AddNewEntitiesAndRelations'.
+2025-07-10 15:27:47.420 +03:00 [ERR] An error occurred using the connection to database 'knowledgebase_slwq' on server 'tcp://dpg-d1mdhh2dbo4c73f67gig-a.singapore-postgres.render.com:5432'.
+2025-07-10 15:29:30.865 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 15:29:31.347 +03:00 [INF] Applying migration '20250710122055_AddNewEntitiesAndRelations'.
+2025-07-10 15:30:57.065 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 15:30:57.552 +03:00 [INF] Applying migration '20250710123037_AddNewEntitiesAndRelations'.
+2025-07-10 15:38:00.454 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 15:38:00.948 +03:00 [INF] No migrations were applied. The database is already up to date.
+2025-07-10 15:38:31.936 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 15:38:32.437 +03:00 [INF] Applying migration '20250710123037_AddNewEntitiesAndRelations'.
+2025-07-10 15:41:53.354 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-dpg-d1nph53ipnbc73avh58g-a.singapore-postgres.render.com:5432'.
+2025-07-10 15:51:33.460 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-dpg-d1nph53ipnbc73avh58g-a.singapore-postgres.render.com:5432'.
+2025-07-10 15:55:25.217 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-dpg-d1nph53ipnbc73avh58g-a.singapore-postgres.render.com:5432'.
+2025-07-10 16:01:24.207 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-d1nph53ipnbc73avh58g-a:5432'.

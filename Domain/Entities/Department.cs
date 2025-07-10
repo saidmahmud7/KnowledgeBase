@@ -7,5 +7,5 @@ public class Department
     public int Id { get; set; }
     [Required]
     public string Name { get; set; }
-    public List<Issue> Issues { get; set; } = new();
+    public List<SubDepartment>? SubDepartments { get; set; }
 }

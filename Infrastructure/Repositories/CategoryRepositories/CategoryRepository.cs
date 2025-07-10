@@ -5,25 +5,24 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Infrastructure.Repositories.DepartmentRepositories;
+namespace Infrastructure.Repositories.CategoryRepositories;
 
-public class DepartmentRepository(DataContext context, ILogger<DepartmentRepository> logger) : IDepartmentRepository
+public class CategoryRepository(DataContext context, ILogger<CategoryRepository> logger) : ICategoryRepository
 {
-    public async Task<List<Department>> GetAll(DepartmentFilter filter)
+    public async Task<List<Category>> GetAll(CategoryFilter filter)
     {
-        var query = context.Departments.Include(i => i.SubDepartments).AsQueryable();
-        
+        var query = context.Categories.Include(i => i.Issues).AsQueryable();
+
         if (!string.IsNullOrEmpty(filter.Name))
             query = query.Where(e => e.Name.ToLower().Trim().Contains(filter.Name.ToLower().Trim()));
-        
-        var departments = await query.ToListAsync();
-        return departments;
+
+        var categories = await query.ToListAsync();
+        return categories;
     }
 
-    public async Task<Department?> GetDepartment(Expression<Func<Department, bool>>? filter = null)
+    public async Task<Category?> GetCategory(Expression<Func<Category, bool>>? filter = null)
     {
-        var query = context.Departments.Include(d => d.SubDepartments) .AsQueryable();
-
+        var query = context.Categories.Include(i => i.Issues).AsQueryable();
         if (filter != null)
         {
             query = query.Where(filter);
@@ -32,11 +31,11 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         return await query.FirstOrDefaultAsync();
     }
 
-    public async Task<int> CreateDepartment(Department request)
+    public async Task<int> CreateCategory(Category request)
     {
         try
         {
-            await context.Departments.AddAsync(request);
+            await context.Categories.AddAsync(request);
             return await context.SaveChangesAsync();
         }
         catch (Exception e)
@@ -46,11 +45,11 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         }
     }
 
-    public async Task<int> UpdateDepartment(Department request)
+    public async Task<int> UpdateCategory(Category request)
     {
         try
         {
-            context.Departments.Update(request);
+            context.Categories.Update(request);
             return await context.SaveChangesAsync();
         }
         catch (Exception e)
@@ -60,11 +59,11 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         }
     }
 
-    public async Task<int> DeleteDepartment(Department request)
+    public async Task<int> DeleteCategory(Category request)
     {
         try
         {
-            context.Departments.Remove(request);
+            context.Categories.Remove(request);
             return await context.SaveChangesAsync();
         }
         catch (Exception e)
