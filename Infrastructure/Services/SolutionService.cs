@@ -70,6 +70,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            // /tmp это временное хранилише потом нужн изменить на wwwroot WebRootPath
             var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
 
             try
@@ -112,7 +113,8 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
             if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB limit
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
 
-            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}"; 
+            // /tmp это временное хранилише потом нужн изменить на wwwroot WebRootPath
             var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
             var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 

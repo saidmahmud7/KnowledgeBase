@@ -28,7 +28,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             CreatedAt = i.CreatedAt,
             ProfileImagePath = i.ProfileImagePath,
             DepartmentId = i.DepartmentId,
-            Solutions = i.Solutions.Select(s => new GetSolutionsDto()
+            Solutions = i.Solutions?.Select(s => new GetSolutionsDto()
             {
                 Id = s.Id,
                 Description = s.Description,
@@ -56,7 +56,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             CreatedAt = issue.CreatedAt,
             ProfileImagePath = issue.ProfileImagePath,
             DepartmentId = issue.DepartmentId,
-            Solutions = issue.Solutions.Select(s => new GetSolutionsDto()
+            Solutions = issue.Solutions?.Select(s => new GetSolutionsDto()
             {
                 Id = s.Id,
                 Description = s.Description,
@@ -92,6 +92,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             //задет уникальное имя чтоб не было конфликта 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
             //это путь к папке куда сохранится 
+            // /tmp это временное хранилише в рендере потом нужн изменить на wwwroot WebRootPath
             var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
 
             try
@@ -149,6 +150,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+            // /tmp это временное хранилише потом нужн изменить на wwwroot WebRootPath
             var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
             var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 

@@ -451,3 +451,5 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'source')
 2025-07-10 08:10:33.461 +03:00 [INF] Executed endpoint 'Web.Controller.DepartmentController.GetById (Web)'
 2025-07-10 08:10:33.470 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Department/1 - 200 null application/json; charset=utf-8 857.3062ms
 2025-07-10 08:10:38.474 +03:00 [INF] Application is shutting down...
+2025-07-10 11:05:20.213 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-10 11:05:20.757 +03:00 [INF] Applying migration '20250710080455_InitialCreate'.
