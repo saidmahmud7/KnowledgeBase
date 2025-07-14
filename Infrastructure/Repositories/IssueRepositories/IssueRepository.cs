@@ -23,7 +23,7 @@ public class IssueRepository(DataContext context, ILogger<IssueRepository> logge
 
     public async Task<Issue> GetIssue(Expression<Func<Issue, bool>>? filter = null)
     {
-        var query = context.Issues.AsQueryable();
+        var query = context.Issues.Include(s=> s.Solutions).AsQueryable();
 
         if (filter != null)
         {
