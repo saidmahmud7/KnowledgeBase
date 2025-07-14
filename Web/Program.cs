@@ -36,7 +36,7 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
+app.UseStaticFiles();
 app.UseSwagger();
 app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
 
@@ -50,22 +50,6 @@ if (app.Environment.IsDevelopment())
     File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "swagger.json"), swaggerJson);
 }
 
-
-var uploadsRoot = "/tmp/uploads";
-
-// создаём папку, если не существует
-if (!Directory.Exists(uploadsRoot))
-{
-    Directory.CreateDirectory(uploadsRoot);
-}
-
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(uploadsRoot),
-    RequestPath = "/uploads"
-});
-
-
 app.UseRouting();
 
 app.UseCors("AllowReactApp");
@@ -77,8 +61,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapGet("/", () => "Hello from KnowledgeBase!");
-
-
-
 
 app.Run();
