@@ -26,14 +26,14 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             Title = i.Title,
             Description = i.Description,
             CreatedAt = i.CreatedAt,
-            ProfileImagePath = i.ProfileImagePath,
+            ProfileImagePath = Path.GetFileName(i.ProfileImagePath),
             CategoryId = i.CategoryId,
             Solutions = i.Solutions?.Select(s => new GetSolutionsDto()
             {
                 Id = s.Id,
                 Description = s.Description,
                 CreatedAt = s.CreatedAt,
-                ProfileImagePath = s.ProfileImagePath,
+                ProfileImagePath = Path.GetFileName(s.ProfileImagePath),
                 IssueId = s.IssueId
             }).ToList()
         }).ToList();
@@ -54,14 +54,14 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             Title = issue.Title,
             Description = issue.Description,
             CreatedAt = issue.CreatedAt,
-            ProfileImagePath = issue.ProfileImagePath,
+            ProfileImagePath = Path.GetFileName(issue.ProfileImagePath),
             CategoryId = issue.CategoryId,
             Solutions = issue.Solutions?.Select(s => new GetSolutionsDto()
             {
                 Id = s.Id,
                 Description = s.Description,
                 CreatedAt = s.CreatedAt,
-                ProfileImagePath = s.ProfileImagePath,
+                ProfileImagePath = Path.GetFileName(s.ProfileImagePath),
                 IssueId = s.IssueId
             }).ToList()
         };

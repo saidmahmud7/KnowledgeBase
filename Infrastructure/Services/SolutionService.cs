@@ -25,7 +25,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
             Description = i.Description,
             CreatedAt = i.CreatedAt,
             IssueId = i.IssueId,
-            ProfileImagePath = i.ProfileImagePath,
+            ProfileImagePath = Path.GetFileName(i.ProfileImagePath),
         }).ToList();
         return new PaginationResponse<List<GetSolutionsDto>>(result, totalRecords, filter.PageNumber,
             filter.PageSize);
@@ -44,7 +44,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
             Id = solution.Id,
             Description = solution.Description,
             CreatedAt = solution.CreatedAt,
-            ProfileImagePath = solution.ProfileImagePath,
+            ProfileImagePath = Path.GetFileName(solution.ProfileImagePath),
             IssueId = solution.IssueId,
         };
         return new ApiResponse<GetSolutionsDto>(result);
