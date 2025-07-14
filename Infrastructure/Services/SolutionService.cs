@@ -71,8 +71,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
             // /tmp это временное хранилише потом нужн изменить на wwwroot WebRootPath
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
-
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles"); 
             try
             {
                 if (!Directory.Exists(uploadsFolder))
@@ -115,7 +114,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}"; 
             // /tmp это временное хранилише потом нужн изменить на wwwroot WebRootPath
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles"); 
             var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
             try

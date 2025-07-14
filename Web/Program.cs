@@ -37,6 +37,14 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 app.UseStaticFiles();
+var uploadsPath = Path.Combine("/tmp", "uploads");
+if (!Directory.Exists(uploadsPath)) Directory.CreateDirectory(uploadsPath); 
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(uploadsPath),
+    RequestPath = "/uploads"
+});
 app.UseSwagger();
 app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
 

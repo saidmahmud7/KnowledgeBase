@@ -93,7 +93,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
             //это путь к папке куда сохранится 
             // /tmp это временное хранилише в рендере потом нужн изменить на wwwroot WebRootPath
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
 
             try
             {
@@ -151,7 +151,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
             // /tmp это временное хранилише потом нужн изменить на wwwroot WebRootPath
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "profiles");
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles"); 
             var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
             try
