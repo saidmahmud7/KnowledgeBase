@@ -1,9 +1,9 @@
 using Infrastructure.Extensions;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Extensions;
 using Serilog;
 using Swashbuckle.AspNetCore.Swagger;
-using Microsoft.EntityFrameworkCore; // ✅ добавь
-using Infrastructure.Data; // ✅ замените на свой namespace
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +50,14 @@ if (app.Environment.IsDevelopment())
     File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "swagger.json"), swaggerJson);
 }
 
+
+// Раздача файлов из папки uploads
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider("/tmp/uploads"),
+    RequestPath = "/uploads"
+});
+
 app.UseRouting();
 
 app.UseCors("AllowReactApp");
@@ -62,11 +70,7 @@ app.MapControllers();
 
 app.MapGet("/", () => "Hello from KnowledgeBase!");
 
-// 🟢 ✅ Автоматическое применение миграций
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<DataContext>(); // ❗️ замени на своё имя
-    db.Database.Migrate();
-}
+
+
 
 app.Run();
