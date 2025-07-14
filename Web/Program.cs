@@ -51,12 +51,20 @@ if (app.Environment.IsDevelopment())
 }
 
 
-// Раздача файлов из папки uploads
+var uploadsRoot = "/tmp/uploads";
+
+// создаём папку, если не существует
+if (!Directory.Exists(uploadsRoot))
+{
+    Directory.CreateDirectory(uploadsRoot);
+}
+
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider("/tmp/uploads"),
+    FileProvider = new PhysicalFileProvider(uploadsRoot),
     RequestPath = "/uploads"
 });
+
 
 app.UseRouting();
 
