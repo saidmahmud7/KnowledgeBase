@@ -20,7 +20,7 @@ public class IssueController(IIssueService service) : ControllerBase
     public async Task<ApiResponse<string>> Create([FromForm]AddIssueDto request) => await service.CreateAsync(request);
     
     [HttpPut("{id}")]
-    public async Task<ApiResponse<string>> Update([FromRoute]int id,[FromBody]UpdateIssueDto request) => await service.UpdateAsync(id,request);
+    public async Task<ApiResponse<string>> Update([FromRoute]int id,[FromForm]UpdateIssueDto request) => await service.UpdateAsync(id,request);
     
     [HttpDelete("{id}")]
     public async Task<ApiResponse<string>> Delete([FromRoute]int id) => await service.DeleteAsync(id);

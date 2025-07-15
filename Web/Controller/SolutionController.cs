@@ -19,7 +19,7 @@ public class SolutionController(ISolutionService service) : ControllerBase
     public async Task<ApiResponse<string>> Create([FromForm]AddSolutionDto request) => await service.CreateAsync(request);
     
     [HttpPut("{id}")]
-    public async Task<ApiResponse<string>> Update([FromRoute]int id,[FromBody]UpdateSolutionDto request) => await service.UpdateAsync(id,request);
+    public async Task<ApiResponse<string>> Update([FromRoute]int id,[FromForm]UpdateSolutionDto request) => await service.UpdateAsync(id,request);
     
     [HttpDelete("{id}")]
     public async Task<ApiResponse<string>> Delete([FromRoute]int id) => await service.DeleteAsync(id); 
