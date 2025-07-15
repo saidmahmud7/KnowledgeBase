@@ -102,6 +102,14 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
     {
         if (id <= 0) return new ApiResponse<string>(HttpStatusCode.BadRequest, "Invalid ID");
         var solution = await repository.GetSolution(s => s.Id == id);
+        if (solution == null)
+        {
+            return new ApiResponse<string>(HttpStatusCode.NotFound, "Issue Not Found ");
+        }
+        solution.Description = request.Description;
+        solution.ProfileImage = request.ProfileImage;
+        solution.CreatedAt = request.CreatedAt;
+        solution.IssueId = request.IssueId;
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
             var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };

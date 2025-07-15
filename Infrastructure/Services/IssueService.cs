@@ -135,7 +135,6 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             return new ApiResponse<string>(HttpStatusCode.NotFound, "Issue Not Found ");
         }
 
-        issue.Id = request.Id;
         issue.Title = request.Title;
         issue.Description = request.Description;
         issue.CreatedAt = request.CreatedAt;
