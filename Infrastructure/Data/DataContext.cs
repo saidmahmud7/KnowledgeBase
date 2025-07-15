@@ -14,11 +14,12 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        //Department → SubDepartment (1 ко многим)
         modelBuilder.Entity<Department>()
             .HasMany(d => d.SubDepartments)
             .WithOne(sd => sd.Department)
             .HasForeignKey(sd => sd.DepartmentId)
-            .OnDelete(DeleteBehavior.Cascade); // или Restrict, если нужно
+            .OnDelete(DeleteBehavior.Cascade); 
 
         // SubDepartment → Categories (1 ко многим)
         modelBuilder.Entity<SubDepartment>()
@@ -32,6 +33,13 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
             .HasMany(c => c.Issues)
             .WithOne(i => i.Category)
             .HasForeignKey(i => i.CategoryId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        //Issue → Solution (1 ко многим)
+        modelBuilder.Entity<Issue>()
+            .HasMany(s => s.Solutions)
+            .WithOne(i => i.Issue)
+            .HasForeignKey(i => i.IssueId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

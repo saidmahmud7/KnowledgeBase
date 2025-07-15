@@ -6,25 +6,12 @@ using Swashbuckle.AspNetCore.Swagger;
 
 
 var builder = WebApplication.CreateBuilder(args);
-
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .WriteTo.File("Loggers/logs.txt", rollingInterval: RollingInterval.Month)
-    .Filter.ByExcluding(logEvent =>
-    {
-        if (!logEvent.Properties.TryGetValue("SourceContext", out var sourceContext)) return false;
-        var sourceContextValue = sourceContext.ToString();
-        return sourceContextValue.Contains("Microsoft.EntityFrameworkCore.Database.Command");
-    })
-    .CreateLogger();
-
+builder.Host.AddSerilogLogger();
 builder.Host.UseSerilog();
-
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddServices(builder.Configuration);
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
@@ -34,7 +21,6 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
-
 var app = builder.Build();
 app.UseStaticFiles();
 var uploadsPath = Path.Combine("/tmp", "uploads");
@@ -59,15 +45,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
-
 app.UseCors("AllowReactApp");
-
 // app.UseHttpsRedirection(); // отключено для Render
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.MapGet("/", () => "Hello from KnowledgeBase!");
-
 app.Run();

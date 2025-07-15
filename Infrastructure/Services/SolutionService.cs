@@ -23,7 +23,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
         {
             Id = i.Id,
             Description = i.Description,
-            CreatedAt = i.CreatedAt,
+            CreatedAt = i.CreatedAt,   
             IssueId = i.IssueId,
             ProfileImagePath = Path.GetFileName(i.ProfileImagePath),
         }).ToList();
