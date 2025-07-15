@@ -19,7 +19,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
             .Skip((filter.PageNumber - 1) * filter.PageSize)
             .Take(filter.PageSize)
             .ToList();
-        var result = solution.Select(i => new GetSolutionsDto()
+        var result = data.Select(i => new GetSolutionsDto()
         {
             Id = i.Id,
             Description = i.Description,

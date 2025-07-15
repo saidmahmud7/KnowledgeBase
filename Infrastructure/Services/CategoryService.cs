@@ -19,7 +19,7 @@ public class CategoryService(ICategoryRepository repository) : ICategoryService
             .Skip((filter.PageNumber - 1) * filter.PageSize)
             .Take(filter.PageSize)
             .ToList();
-        var result = category.Select(c => new GetCategoryDto()
+        var result = data.Select(c => new GetCategoryDto()
         {
             Id = c.Id,
             Name = c.Name,

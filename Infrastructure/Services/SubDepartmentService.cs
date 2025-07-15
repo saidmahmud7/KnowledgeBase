@@ -19,7 +19,7 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
             .Skip((filter.PageNumber - 1) * filter.PageSize)
             .Take(filter.PageSize)
             .ToList();
-        var result = subDepartment.Select(s => new GetSubDepartmentDto()
+        var result = data.Select(s => new GetSubDepartmentDto()
         {
             Id = s.Id,
             Name = s.Name,

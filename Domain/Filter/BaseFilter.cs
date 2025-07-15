@@ -1,19 +1,19 @@
-namespace Domain.Filter;
+    namespace Domain.Filter;
 
-public class BaseFilter
-{
-    public int PageNumber { get; set; }
-    public int PageSize { get; set; }
-
-    public BaseFilter()
+    public class BaseFilter
     {
-        PageNumber = 1;
-        PageSize = 10;
-    }
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
 
-    public BaseFilter(int pageNumber, int pageSize)
-    {
-        PageNumber = pageNumber < 1 ? 1 : pageNumber;
-        PageSize = pageSize < 10 ? 10 : pageSize;
+        public BaseFilter()
+        {
+            PageNumber = 1;
+            PageSize = 10;
+        }
+
+        public BaseFilter(int pageNumber, int pageSize)
+        {
+            PageNumber = pageNumber < 1 ? 1 : pageNumber;
+            PageSize = pageSize < 10 ? 10 : pageSize;
+        }
     }
-}

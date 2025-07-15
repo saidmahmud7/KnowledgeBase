@@ -14,13 +14,14 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
 {
     public async Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter)
     {
+        
         var issue = await repository.GetAll(filter);
         var totalRecords = issue.Count;
         var data = issue
             .Skip((filter.PageNumber - 1) * filter.PageSize)
             .Take(filter.PageSize)
             .ToList();
-        var result = issue.Select(i => new GetIssuesDto()
+        var result = data.Select(i => new GetIssuesDto()
         {
             Id = i.Id,
             Title = i.Title,
