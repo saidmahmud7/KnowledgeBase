@@ -107,7 +107,6 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
             return new ApiResponse<string>(HttpStatusCode.NotFound, "Issue Not Found ");
         }
         solution.Description = request.Description;
-        solution.ProfileImage = request.ProfileImage;
         solution.CreatedAt = request.CreatedAt;
         solution.IssueId = request.IssueId;
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
