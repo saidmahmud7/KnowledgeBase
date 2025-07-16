@@ -1,4 +1,7 @@
+using Infrastructure.Data;
 using Infrastructure.Extensions;
+using Infrastructure.Seed;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Extensions;
 using Serilog;
@@ -12,6 +15,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddServices(builder.Configuration);
+builder.Services.SwaggerConfigurationServices(); 
+builder.Services.AuthConfigureServices(builder.Configuration);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
@@ -22,6 +27,27 @@ builder.Services.AddCors(options =>
     });
 });
 var app = builder.Build();
+try
+{
+    using var scope = app.Services.CreateScope();
+    var serviceProvider = scope.ServiceProvider;
+
+    // 1️⃣ Применяем миграции
+    var dataContext = serviceProvider.GetRequiredService<DataContext>();
+    await dataContext.Database.MigrateAsync();
+
+    // 2️⃣ Заполняем БД начальными данными (сидер)
+    var seeder = serviceProvider.GetRequiredService<Seeder>();
+    await seeder.SeedRole();
+    await seeder.SeedUser();
+    Console.WriteLine("Приложение успешно запущено!");
+}
+catch (Exception e)
+{
+    Console.WriteLine($"Ошибка при запуске: {e.Message}");
+    throw; // Прокидываем ошибку дальше, чтобы приложение не запускалось с критическими проблемами
+}
+
 app.UseStaticFiles();
 var uploadsPath = Path.Combine("/tmp", "uploads");
 if (!Directory.Exists(uploadsPath)) Directory.CreateDirectory(uploadsPath); 
@@ -47,6 +73,7 @@ if (app.Environment.IsDevelopment())
 app.UseRouting();
 app.UseCors("AllowReactApp");
 // app.UseHttpsRedirection(); // отключено для Render
+app.UseAuthentication(); 
 app.UseAuthorization();
 app.MapControllers();
 app.MapGet("/", () => "Hello from KnowledgeBase!");
