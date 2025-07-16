@@ -710,3 +710,9 @@ System.Net.Sockets.SocketException (11001): Этот хост неизвесте
 2025-07-16 14:56:38.721 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-d1nph53ipnbc73avh58g-a:5432'.
 2025-07-16 15:07:07.964 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-d1nph53ipnbc73avh58g-a.singapore-render.com:5432'.
 2025-07-16 15:17:47.803 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-d1nph53ipnbc73avh58g-a.singapore-render.com:5432'.
+2025-07-16 15:45:39.354 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-d1nph53ipnbc73avh58g-p.singapore-render.com:5432'.
+2025-07-16 15:46:18.910 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-abc1234567890abcdefgh-p.singapore-postgres.render.com:5432'.
+2025-07-16 15:50:55.890 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-abc1234567890abcdefgh-p.singapore-postgres.render.com:5432'.
+2025-07-16 15:53:29.965 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-abc1234567890abcdefgh-p.singapore-postgres.render.com:5432'.
+2025-07-16 15:56:02.663 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-16 15:56:03.165 +03:00 [INF] Applying migration '20250716115608_AddNewEntities'.
