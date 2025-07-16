@@ -5,6 +5,7 @@ using Infrastructure.Repositories.DepartmentRepositories;
 using Infrastructure.Repositories.IssueRepositories;
 using Infrastructure.Repositories.SolutionRepositories;
 using Infrastructure.Repositories.SubDepartmentRepositories;
+using Infrastructure.Seed;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,8 +17,11 @@ public static class RegisterService
 {
     public static void AddServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddScoped<Seeder>();
         services.AddDbContext<DataContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("Default")));
+        services.AddScoped<IAuthService, AuthService>();
+
         
         services.AddScoped<IDepartmentRepository, DepartmentRepository>();
         services.AddScoped<IDepartmentService, DepartmentService>();
