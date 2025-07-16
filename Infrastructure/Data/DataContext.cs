@@ -1,10 +1,12 @@
 using Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data;
 
-public class DataContext(DbContextOptions<DataContext> options) : DbContext(options)
+public class DataContext(DbContextOptions<DataContext> options) : IdentityDbContext(options)
 {
+    public DbSet<User> Users { get; set; }
     public DbSet<Department> Departments {get;set;}
     public DbSet<SubDepartment> SubDepartments {get;set;}
     public DbSet<Category> Categories {get;set;}

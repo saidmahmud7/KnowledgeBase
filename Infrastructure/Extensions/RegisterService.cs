@@ -21,7 +21,6 @@ public static class RegisterService
         services.AddDbContext<DataContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("Default")));
         services.AddScoped<IAuthService, AuthService>();
-
         
         services.AddScoped<IDepartmentRepository, DepartmentRepository>();
         services.AddScoped<IDepartmentService, DepartmentService>();
