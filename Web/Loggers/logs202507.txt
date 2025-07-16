@@ -707,3 +707,6 @@ System.Net.Sockets.SocketException (11001): Этот хост неизвесте
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
 2025-07-15 19:27:46.710 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5232/api/Category - 500 null text/plain; charset=utf-8 1909.4823ms
 2025-07-15 19:51:12.538 +03:00 [INF] Application is shutting down...
+2025-07-16 14:56:38.721 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-d1nph53ipnbc73avh58g-a:5432'.
+2025-07-16 15:07:07.964 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-d1nph53ipnbc73avh58g-a.singapore-render.com:5432'.
+2025-07-16 15:17:47.803 +03:00 [ERR] An error occurred using the connection to database 'kn' on server 'tcp://dpg-d1nph53ipnbc73avh58g-a.singapore-render.com:5432'.

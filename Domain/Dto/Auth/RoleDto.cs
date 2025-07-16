@@ -1,7 +1,7 @@
 ﻿namespace Domain.Dto.Auth;
 
-    public class RoleDto
-    {
-        public string RoleId { get; set; }
-        public string UserId { get; set; }
-    }
+public class RoleDto
+{
+    public required string RoleId { get; set; }
+    public required string UserId { get; set; }
+}

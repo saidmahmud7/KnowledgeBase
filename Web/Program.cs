@@ -45,7 +45,7 @@ try
 catch (Exception e)
 {
     Console.WriteLine($"Ошибка при запуске: {e.Message}");
-    throw; // Прокидываем ошибку дальше, чтобы приложение не запускалось с критическими проблемами
+    throw; 
 }
 
 app.UseStaticFiles();
