@@ -12,14 +12,17 @@ namespace Infrastructure.Services;
 
 public class DepartmentService(IDepartmentRepository repository) : IDepartmentService
 {
-    public async Task<PaginationResponse<List<GetDepartmentsDto>>> GetAllDepartmentsAsync(DepartmentFilter filter)
+    public async Task<PaginationResponse<List<GetDepartmentsDto>>> GetAllDepartmentsAsync(DepartmentFilter filter,
+        int departmentId)
     {
-        var department = await repository.GetAll(filter);
-        var totalRecords = department.Count;
-        var data = department
+        var departments = await repository.GetAll(filter, departmentId);
+
+        var totalRecords = departments.Count;
+        var data = departments
             .Skip((filter.PageNumber - 1) * filter.PageSize)
             .Take(filter.PageSize)
             .ToList();
+
         var result = data.Select(d => new GetDepartmentsDto()
         {
             Id = d.Id,
@@ -31,6 +34,7 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
                 DepartmentId = i.DepartmentId
             }).ToList()
         }).ToList();
+
         return new PaginationResponse<List<GetDepartmentsDto>>(result, totalRecords, filter.PageNumber,
             filter.PageSize);
     }
@@ -66,7 +70,7 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
         var result = await repository.CreateDepartment(department);
 
         return result == 1
-            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK, "Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -78,13 +82,13 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
             return new ApiResponse<string>(HttpStatusCode.NotFound, "Department Not Found");
         }
 
-      
+
         department.Name = request.Name;
 
         var result = await repository.UpdateDepartment(department);
 
         return result == 1
-            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK, "Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -98,7 +102,7 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
 
         var result = await repository.DeleteDepartment(department);
         return result == 1
-            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK, "Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 }

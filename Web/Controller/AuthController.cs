@@ -13,7 +13,7 @@ public class AuthController(IAuthService authService)
 {
     [HttpPost("register")]
     [Authorize(Roles = Roles.Admin)]
-    public async Task<ApiResponse<string>> Register([FromForm]RegisterDto request)
+    public async Task<ApiResponse<string>> Register([FromForm] RegisterDto request)
     {
         return await authService.Register(request);
     }

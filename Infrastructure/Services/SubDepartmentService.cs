@@ -11,7 +11,8 @@ namespace Infrastructure.Services;
 
 public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDepartmentService
 {
-    public async Task<PaginationResponse<List<GetSubDepartmentDto>>> GetAllSubDepartmentAsync(SubDepartmentFilter filter)
+    public async Task<PaginationResponse<List<GetSubDepartmentDto>>> GetAllSubDepartmentAsync(
+        SubDepartmentFilter filter)
     {
         var subDepartment = await repository.GetAll(filter);
         var totalRecords = subDepartment.Count;
@@ -78,7 +79,7 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
         {
             return new ApiResponse<string>(HttpStatusCode.NotFound, "SubDepartment Not Found");
         }
-        
+
         subDepartment.Name = request.Name;
         subDepartment.DepartmentId = request.DepartmentId;
         var result = await repository.UpdateSubDepartment(subDepartment);

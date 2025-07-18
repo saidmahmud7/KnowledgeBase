@@ -9,20 +9,23 @@ namespace Infrastructure.Repositories.DepartmentRepositories;
 
 public class DepartmentRepository(DataContext context, ILogger<DepartmentRepository> logger) : IDepartmentRepository
 {
-    public async Task<List<Department>> GetAll(DepartmentFilter filter)
+    public async Task<List<Department>> GetAll(DepartmentFilter filter, int departmentId)
     {
-        var query = context.Departments.Include(i => i.SubDepartments).AsQueryable();
-        
+        var query = context.Departments
+            .Include(i => i.SubDepartments)
+            .Where(d => d.Id == departmentId)
+            .AsQueryable();
+
         if (!string.IsNullOrEmpty(filter.Name))
             query = query.Where(e => e.Name.ToLower().Trim().Contains(filter.Name.ToLower().Trim()));
-        
+
         var departments = await query.ToListAsync();
         return departments;
     }
 
     public async Task<Department?> GetDepartment(Expression<Func<Department, bool>>? filter = null)
     {
-        var query = context.Departments.Include(d => d.SubDepartments) .AsQueryable();
+        var query = context.Departments.Include(d => d.SubDepartments).AsQueryable();
 
         if (filter != null)
         {
