@@ -66,7 +66,7 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
         var result = await repository.CreateDepartment(department);
 
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -78,13 +78,13 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
             return new ApiResponse<string>(HttpStatusCode.NotFound, "Department Not Found");
         }
 
-        department.Id = request.Id;
+      
         department.Name = request.Name;
 
         var result = await repository.UpdateDepartment(department);
 
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -98,7 +98,7 @@ public class DepartmentService(IDepartmentRepository repository) : IDepartmentSe
 
         var result = await repository.DeleteDepartment(department);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 }

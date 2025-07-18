@@ -11,9 +11,9 @@ public static class SwaggerService
         {
             c.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "HRSystem web API",
+                Title = "Base web API",
                 Version = "v1",
-                Description = "HRSystem API Services.",
+                Description = "Base API Services.",
                 Contact = new OpenApiContact { Name = "Said" },
             });
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

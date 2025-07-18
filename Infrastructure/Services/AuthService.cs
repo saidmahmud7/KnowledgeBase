@@ -39,6 +39,7 @@ public class AuthService(
         {
             UserName = model.UserName,
             Email = model.Email,
+            DepartmentId = model.DepartmentId
         };
 
         var result = await userManager.CreateAsync(newUser, model.Password);
@@ -66,7 +67,7 @@ public class AuthService(
         var token = await GenerateJwtToken(existingUser);
         return new ApiResponse<string>(token);
     }
-
+    
     #region GWTTOKEN
 
     private async Task<string> GenerateJwtToken(User user)
@@ -79,6 +80,7 @@ public class AuthService(
             new Claim(JwtRegisteredClaimNames.Name, user.UserName),
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
             new Claim(JwtRegisteredClaimNames.NameId, user.Id),
+            new Claim("DepartmentId", user.DepartmentId?.ToString() ?? "") 
         };
 
         //add roles

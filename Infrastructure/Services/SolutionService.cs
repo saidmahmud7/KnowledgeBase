@@ -94,7 +94,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
         var result = await repository.CreateSolution(solution);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -150,7 +150,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
         var result = await repository.UpdateSolution(solution);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -178,7 +178,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
         var result = await repository.DeleteSolution(solution);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 }

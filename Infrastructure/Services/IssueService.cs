@@ -122,7 +122,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
 
         var result = await repository.CreateIssue(issue);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -180,7 +180,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
 
         var result = await repository.UpdateIssue(issue);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -208,7 +208,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
 
         var result = await repository.DeleteIssue(issue);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 }

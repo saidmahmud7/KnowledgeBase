@@ -74,7 +74,7 @@ public class CategoryService(ICategoryRepository repository) : ICategoryService
         var result = await repository.CreateCategory(category);
         
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -85,13 +85,13 @@ public class CategoryService(ICategoryRepository repository) : ICategoryService
         {
             return new ApiResponse<string>(HttpStatusCode.NotFound, "Category Not Found");
         }
-        category.Id = request.Id;
+       
         category.Name = request.Name;
         category.SubDepartmentId = request.SubDepartmentId;
         var result = await repository.UpdateCategory(category);
 
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -105,7 +105,7 @@ public class CategoryService(ICategoryRepository repository) : ICategoryService
         
         var result = await repository.DeleteCategory(category);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 }

@@ -30,6 +30,12 @@ public class Seeder(UserManager<User> userManager, RoleManager<IdentityRole> rol
         {
             new IdentityRole(Roles.Admin),
             new IdentityRole(Roles.User),
+            new IdentityRole(Roles.It),
+            new IdentityRole(Roles.Lawyer),
+            new IdentityRole(Roles.Hr),
+            new IdentityRole(Roles.Accountant),
+            new IdentityRole(Roles.Treasurer),
+            new IdentityRole(Roles.Abs),
         };
 
         var roles = await roleManager.Roles.ToListAsync();
@@ -52,4 +58,10 @@ public static class Roles
 {
     public const string Admin = "Admin";
     public const string User = "User";
+    public const string It = "It";
+    public const string Lawyer = "Lawyer";
+    public const string Hr = "Hr";
+    public const string Accountant = "Accountant";
+    public const string Treasurer = "Treasurer";
+    public const string Abs = "Abs";
 }

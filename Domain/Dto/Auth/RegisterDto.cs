@@ -11,5 +11,5 @@ public class RegisterDto
     public string Password { get; set; }
     [Compare("Password", ErrorMessage = "Пароли не совпадают")]
     public string ConfirmPassword { get; set; }
-    
+    public int? DepartmentId { get; set; } 
 }
