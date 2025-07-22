@@ -13,10 +13,10 @@ namespace Infrastructure.Services;
 
 public class IssueService(IIssueRepository repository,IWebHostEnvironment _environment) : IIssueService
 {
-    public async Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter, int? departmentId = null)
+    public async Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter)
     {
         
-        var issue = await repository.GetAll(filter,departmentId);
+        var issue = await repository.GetAll(filter);
         var totalRecords = issue.Count;
         var data = issue
             .Skip((filter.PageNumber - 1) * filter.PageSize)

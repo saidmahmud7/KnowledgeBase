@@ -9,14 +9,12 @@ namespace Infrastructure.Repositories.SolutionRepositories;
 
 public class SolutionRepository(DataContext context, ILogger<SolutionRepository> logger) : ISolutionRepository
 {
-    public async Task<List<Solution>> GetAll(SolutionFilter filter, int? departmentId = null)
+    public async Task<List<Solution>> GetAll(SolutionFilter filter)
     {
         var query = context.Solutions.AsQueryable();
         
         if (!string.IsNullOrEmpty(filter.Description))
             query = query.Where(e => e.Description.ToLower().Trim().Contains(filter.Description.ToLower().Trim()));
-        if (departmentId.HasValue)
-            query = query.Where(x => x.Employee != null && x.Employee.DepartmentId == departmentId); 
         
         var solutions = await query.ToListAsync();
         return solutions;

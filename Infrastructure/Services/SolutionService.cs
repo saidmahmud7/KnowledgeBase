@@ -11,10 +11,9 @@ namespace Infrastructure.Services;
 
 public class SolutionService(ISolutionRepository repository, IWebHostEnvironment _environment) : ISolutionService
 {
-    public async Task<PaginationResponse<List<GetSolutionsDto>>> GetAllSolutionAsync(SolutionFilter filter,
-        int? departmentId = null)
+    public async Task<PaginationResponse<List<GetSolutionsDto>>> GetAllSolutionAsync(SolutionFilter filter)
     {
-        var solution = await repository.GetAll(filter, departmentId);
+        var solution = await repository.GetAll(filter);
         var totalRecords = solution.Count;
         var data = solution
             .Skip((filter.PageNumber - 1) * filter.PageSize)

@@ -12,18 +12,11 @@ namespace Web.Controller;
 [Route("api/[controller]")]
 public class SolutionController(ISolutionService service) : ControllerBase
 {
-    private int? GetDepartmentIdFromToken()
-    {
-        var claim = User.FindFirst("DepartmentId");
-        return int.TryParse(claim?.Value, out var id) ? id : null;
-    }
-
     [HttpGet]
     [Authorize]
     public async Task<PaginationResponse<List<GetSolutionsDto>>> GetAll([FromQuery] SolutionFilter filter)
     {
-        var departmentId = GetDepartmentIdFromToken();
-        return await service.GetAllSolutionAsync(filter, departmentId);
+        return await service.GetAllSolutionAsync(filter);
     }
 
     [HttpGet("{id}")]

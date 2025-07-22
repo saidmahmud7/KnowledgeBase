@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controller;
-
+[ApiController]
+[Route("api/[controller]")]
 public class EmployeeController(IEmployeeService service) : ControllerBase
 {
     [HttpGet]

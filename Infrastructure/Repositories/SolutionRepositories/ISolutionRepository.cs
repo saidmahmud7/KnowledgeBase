@@ -6,7 +6,7 @@ namespace Infrastructure.Repositories.SolutionRepositories;
 
 public interface ISolutionRepository
 {
-    Task<List<Solution>> GetAll(SolutionFilter filter, int? departmentId);
+    Task<List<Solution>> GetAll(SolutionFilter filter);
     Task<Solution> GetSolution(Expression<Func<Solution, bool>>? filter = null);
     Task<int> CreateSolution(Solution request);
     Task<int>UpdateSolution(Solution request);

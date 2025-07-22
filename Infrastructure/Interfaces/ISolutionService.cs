@@ -6,7 +6,7 @@ namespace Infrastructure.Interfaces;
 
 public interface ISolutionService
 {
-    Task<PaginationResponse<List<GetSolutionsDto>>> GetAllSolutionAsync(SolutionFilter filter,int? departmentId);
+    Task<PaginationResponse<List<GetSolutionsDto>>> GetAllSolutionAsync(SolutionFilter filter);
     Task<ApiResponse<GetSolutionsDto>> GetByIdAsync(int id);
     Task<ApiResponse<string>> CreateAsync(AddSolutionDto request);
     Task<ApiResponse<string>> UpdateAsync(int id,UpdateSolutionDto request);
