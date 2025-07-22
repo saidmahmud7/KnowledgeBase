@@ -17,7 +17,7 @@ public class Issue
     public int CategoryId { get; set; }
     public Category Category { get; set; }
     
-    public int EmployeeId { get; set; } 
+    public int? EmployeeId { get; set; } 
     public Employee Employee { get; set; }
     public List<Solution>? Solutions { get; set; }
 }
