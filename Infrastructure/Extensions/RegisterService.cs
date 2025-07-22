@@ -2,6 +2,7 @@ using Infrastructure.Data;
 using Infrastructure.Interfaces;
 using Infrastructure.Repositories.CategoryRepositories;
 using Infrastructure.Repositories.DepartmentRepositories;
+using Infrastructure.Repositories.EmployeeRepositories;
 using Infrastructure.Repositories.IssueRepositories;
 using Infrastructure.Repositories.SolutionRepositories;
 using Infrastructure.Repositories.SubDepartmentRepositories;
@@ -36,5 +37,8 @@ public static class RegisterService
         
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<ICategoryService, CategoryService>();
+        
+        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.AddScoped<IEmployeeService, EmployeeService>();
     }
 }

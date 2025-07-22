@@ -12,11 +12,9 @@ namespace Infrastructure.Services;
 
 public class DepartmentService(IDepartmentRepository repository) : IDepartmentService
 {
-    public async Task<PaginationResponse<List<GetDepartmentsDto>>> GetAllDepartmentsAsync(DepartmentFilter filter,
-        int departmentId)
+    public async Task<PaginationResponse<List<GetDepartmentsDto>>> GetAllDepartmentsAsync(DepartmentFilter filter, int? departmentId)
     {
-        var departments = await repository.GetAll(filter, departmentId);
-
+        var departments = await repository.GetAll(filter,departmentId);
         var totalRecords = departments.Count;
         var data = departments
             .Skip((filter.PageNumber - 1) * filter.PageSize)

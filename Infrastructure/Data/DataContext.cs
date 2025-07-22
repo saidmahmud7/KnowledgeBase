@@ -12,6 +12,7 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
     public DbSet<Category> Categories {get;set;}
     public DbSet<Issue> Issues {get;set;}
     public DbSet<Solution> Solutions {get;set;}
+    public DbSet<Employee> Employees {get;set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -42,6 +43,12 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
             .HasMany(s => s.Solutions)
             .WithOne(i => i.Issue)
             .HasForeignKey(i => i.IssueId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<User>()
+            .HasOne(u => u.Employee)
+            .WithOne(e => e.User)
+            .HasForeignKey<Employee>(e => e.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

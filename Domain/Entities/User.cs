@@ -4,6 +4,5 @@ namespace Domain.Entities;
 
 public class User : IdentityUser
 {
-    public int? DepartmentId { get; set; }
-    public Department? Department { get; set; }
+    public Employee? Employee { get; set; }
 }

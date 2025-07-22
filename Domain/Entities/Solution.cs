@@ -14,4 +14,7 @@ public class Solution
     //navigation
     public int IssueId { get; set; }
     public Issue Issue { get; set; }
+    
+    public int EmployeeId { get; set; } 
+    public Employee Employee { get; set; }
 }

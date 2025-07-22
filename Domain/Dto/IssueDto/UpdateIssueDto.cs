@@ -10,4 +10,6 @@ public class UpdateIssueDto
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public IFormFile? ProfileImage { get; set; }
     public int CategoryId { get; set; }
+    public int EmployeeId { get; set; } 
+
 }

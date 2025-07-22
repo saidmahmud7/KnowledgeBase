@@ -4,18 +4,19 @@ using Domain.Dto.SolutionDto;
 using Domain.Entities;
 using Domain.Filter;
 using Infrastructure.Interfaces;
+using Infrastructure.Repositories.EmployeeRepositories;
 using Infrastructure.Repositories.IssueRepositories;
 using Infrastructure.Response;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Infrastructure.Services;
 
-public class IssueService(IIssueRepository repository, IWebHostEnvironment _environment) : IIssueService
+public class IssueService(IIssueRepository repository,IWebHostEnvironment _environment) : IIssueService
 {
-    public async Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter)
+    public async Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter, int? departmentId = null)
     {
         
-        var issue = await repository.GetAll(filter);
+        var issue = await repository.GetAll(filter,departmentId);
         var totalRecords = issue.Count;
         var data = issue
             .Skip((filter.PageNumber - 1) * filter.PageSize)
@@ -29,6 +30,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             CreatedAt = i.CreatedAt,
             ProfileImagePath = Path.GetFileName(i.ProfileImagePath),
             CategoryId = i.CategoryId,
+            EmployeeId = i.EmployeeId,
             Solutions = i.Solutions?.Select(s => new GetSolutionsDto()
             {
                 Id = s.Id,
@@ -57,6 +59,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             CreatedAt = issue.CreatedAt,
             ProfileImagePath = Path.GetFileName(issue.ProfileImagePath),
             CategoryId = issue.CategoryId,
+            EmployeeId = issue.EmployeeId,
             Solutions = issue.Solutions?.Select(s => new GetSolutionsDto()
             {
                 Id = s.Id,
@@ -77,6 +80,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
             Description = request.Description,
             CreatedAt = DateTime.UtcNow,
             CategoryId = request.CategoryId,
+            EmployeeId = request.EmployeeId,
         };
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
@@ -139,6 +143,7 @@ public class IssueService(IIssueRepository repository, IWebHostEnvironment _envi
         issue.Description = request.Description;
         issue.CreatedAt = request.CreatedAt;
         issue.CategoryId = request.CategoryId;
+        issue.EmployeeId = request.EmployeeId;
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
             var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };

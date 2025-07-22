@@ -10,4 +10,6 @@ public class UpdateSolutionDto
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     //navigation
     public int IssueId { get; set; }
+    public int EmployeeId { get; set; } 
+
 }

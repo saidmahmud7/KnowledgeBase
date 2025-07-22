@@ -16,5 +16,8 @@ public class Issue
     public string? ProfileImagePath { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
+    
+    public int EmployeeId { get; set; } 
+    public Employee Employee { get; set; }
     public List<Solution>? Solutions { get; set; }
 }

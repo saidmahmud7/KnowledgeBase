@@ -1,8 +1,10 @@
+using Domain.Dto.DepartmentDto;
 using Domain.Dto.IssueDto;
 using Domain.Dto.SolutionDto;
 using Domain.Filter;
 using Infrastructure.Interfaces;
 using Infrastructure.Response;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controller;
@@ -11,9 +13,19 @@ namespace Web.Controller;
 [Route("api/[controller]")]
 public class IssueController(IIssueService service) : ControllerBase
 {
+    private int? GetDepartmentIdFromToken()
+    {
+        var claim = User.FindFirst("DepartmentId");
+        return int.TryParse(claim?.Value, out var id) ? id : null;
+    }
+
     [HttpGet]
-    public async Task<PaginationResponse<List<GetIssuesDto>>> GetAll([FromQuery] IssueFilter filter) =>
-        await service.GetAllIssueAsync(filter);
+    [Authorize]
+    public async Task<PaginationResponse<List<GetIssuesDto>>> GetAll([FromQuery] IssueFilter filter)
+    {
+        var departmentId = GetDepartmentIdFromToken();
+        return await service.GetAllIssueAsync(filter, departmentId);
+    }
 
     [HttpGet("{id}")]
     public async Task<ApiResponse<GetIssuesDto>> GetById(int id) => await service.GetByIdAsync(id);

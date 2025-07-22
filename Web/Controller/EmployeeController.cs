@@ -1,4 +1,4 @@
-using Domain.Dto.CategoryDto;
+using Domain.Dto.EmployeeDto;
 using Domain.Filter;
 using Infrastructure.Interfaces;
 using Infrastructure.Response;
@@ -8,25 +8,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controller;
 
-[ApiController]
-[Route("api/[controller]")]
-public class CategoryController(ICategoryService service) : ControllerBase
+public class EmployeeController(IEmployeeService service) : ControllerBase
 {
     [HttpGet]
-    public async Task<PaginationResponse<List<GetCategoryDto>>> GetAll([FromQuery] CategoryFilter filter) =>
-        await service.GetAllCategoryAsync(filter);
+    public async Task<PaginationResponse<List<GetEmployeeDto>>> GetAll([FromQuery] EmployeeFilter filter) =>
+        await service.GetAllEmployeeAsync(filter);
 
     [HttpGet("{id}")]
-    public async Task<ApiResponse<GetCategoryDto>> GetById(int id) => await service.GetByIdAsync(id);
+    public async Task<ApiResponse<GetEmployeeDto>> GetById(int id) => await service.GetByIdAsync(id);
 
     [HttpPost]
     [Authorize(Roles = Roles.Admin)]
-    public async Task<ApiResponse<string>> Create([FromForm] AddCategoryDto request) =>
+    public async Task<ApiResponse<string>> Create([FromBody] AddEmployeeDto request) =>
         await service.CreateAsync(request);
 
     [HttpPut("{id}")]
     [Authorize(Roles = Roles.Admin)]
-    public async Task<ApiResponse<string>> Update([FromRoute] int id, [FromBody] UpdateCategoryDto request) =>
+    public async Task<ApiResponse<string>> Update([FromRoute] int id, [FromBody] UpdateEmployeeDto request) =>
         await service.UpdateAsync(id, request);
 
     [HttpDelete("{id}")]

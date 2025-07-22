@@ -6,7 +6,7 @@ namespace Infrastructure.Interfaces;
 
 public interface IIssueService
 {
-    Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter);
+    Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter, int? departmentId);
     Task<ApiResponse<GetIssuesDto>> GetByIdAsync(int id);
     Task<ApiResponse<string>> CreateAsync(AddIssueDto request);
     Task<ApiResponse<string>> UpdateAsync(int id,UpdateIssueDto request);

@@ -11,9 +11,10 @@ namespace Infrastructure.Services;
 
 public class SolutionService(ISolutionRepository repository, IWebHostEnvironment _environment) : ISolutionService
 {
-    public async Task<PaginationResponse<List<GetSolutionsDto>>> GetAllSolutionAsync(SolutionFilter filter)
+    public async Task<PaginationResponse<List<GetSolutionsDto>>> GetAllSolutionAsync(SolutionFilter filter,
+        int? departmentId = null)
     {
-        var solution = await repository.GetAll(filter);
+        var solution = await repository.GetAll(filter, departmentId);
         var totalRecords = solution.Count;
         var data = solution
             .Skip((filter.PageNumber - 1) * filter.PageSize)
@@ -23,8 +24,9 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
         {
             Id = i.Id,
             Description = i.Description,
-            CreatedAt = i.CreatedAt,   
+            CreatedAt = i.CreatedAt,
             IssueId = i.IssueId,
+            EmployeeId = i.EmployeeId,
             ProfileImagePath = Path.GetFileName(i.ProfileImagePath),
         }).ToList();
         return new PaginationResponse<List<GetSolutionsDto>>(result, totalRecords, filter.PageNumber,
@@ -46,6 +48,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
             CreatedAt = solution.CreatedAt,
             ProfileImagePath = Path.GetFileName(solution.ProfileImagePath),
             IssueId = solution.IssueId,
+            EmployeeId = solution.EmployeeId,
         };
         return new ApiResponse<GetSolutionsDto>(result);
     }
@@ -57,6 +60,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
             Description = request.Description,
             CreatedAt = DateTime.UtcNow,
             IssueId = request.IssueId,
+            EmployeeId = request.EmployeeId,
         };
 
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
@@ -71,7 +75,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
             var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
             // /tmp это временное хранилише потом нужн изменить на wwwroot WebRootPath
-            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles"); 
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
             try
             {
                 if (!Directory.Exists(uploadsFolder))
@@ -94,7 +98,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
         var result = await repository.CreateSolution(solution);
         return result == 1
-            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK, "Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -106,9 +110,11 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
         {
             return new ApiResponse<string>(HttpStatusCode.NotFound, "Issue Not Found ");
         }
+
         solution.Description = request.Description;
         solution.CreatedAt = request.CreatedAt;
         solution.IssueId = request.IssueId;
+        solution.EmployeeId = request.EmployeeId;
         if (request.ProfileImage != null && request.ProfileImage.Length > 0)
         {
             var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
@@ -119,9 +125,9 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
             if (request.ProfileImage.Length > 5 * 1024 * 1024) // 5 MB limit
                 return new ApiResponse<string>(HttpStatusCode.BadRequest, "File too large");
 
-            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}"; 
+            var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
             // /tmp это временное хранилише потом нужн изменить на wwwroot WebRootPath
-            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles"); 
+            var uploadsFolder = Path.Combine("/tmp", "uploads", "profiles");
             var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
             try
@@ -150,7 +156,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
         var result = await repository.UpdateSolution(solution);
         return result == 1
-            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK, "Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -178,7 +184,7 @@ public class SolutionService(ISolutionRepository repository, IWebHostEnvironment
 
         var result = await repository.DeleteSolution(solution);
         return result == 1
-            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK, "Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 }

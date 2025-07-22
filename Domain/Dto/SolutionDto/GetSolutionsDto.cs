@@ -9,4 +9,6 @@ public class GetSolutionsDto
 
     //navigation
     public int IssueId { get; set; }
+    public int EmployeeId { get; set; } 
+
 }
