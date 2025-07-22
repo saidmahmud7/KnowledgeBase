@@ -6,6 +6,7 @@ using Infrastructure.Repositories.EmployeeRepositories;
 using Infrastructure.Repositories.IssueRepositories;
 using Infrastructure.Repositories.SolutionRepositories;
 using Infrastructure.Repositories.SubDepartmentRepositories;
+using Infrastructure.Repositories.UserRepositories;
 using Infrastructure.Seed;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
@@ -40,5 +41,8 @@ public static class RegisterService
         
         services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         services.AddScoped<IEmployeeService, EmployeeService>();
+        
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IUserService, UserService>();
     }
 }
