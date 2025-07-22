@@ -734,3 +734,9 @@ System.Net.Sockets.SocketException (11001): Этот хост неизвесте
 2025-07-22 08:27:03.259 +03:00 [INF] Applying migration '20250721181748_AddnewEntities2'.
 2025-07-22 08:36:56.097 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
 2025-07-22 08:36:56.722 +03:00 [INF] Applying migration '20250721181748_AddnewEntities2'.
+2025-07-22 08:47:38.645 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-22 08:47:39.303 +03:00 [INF] Applying migration '20250721181748_AddnewEntities2'.
+2025-07-22 08:50:46.402 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-22 08:50:47.091 +03:00 [INF] Applying migration '20250721181748_AddnewEntities2'.
+2025-07-22 08:54:28.104 +03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-22 08:54:28.745 +03:00 [INF] Applying migration '20250722055410_DoNull'.

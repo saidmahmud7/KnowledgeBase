@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250722053641_DoNull")]
+    [Migration("20250722055410_DoNull")]
     partial class DoNull
     {
         /// <inheritdoc />

@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class AddnewEntities2 : Migration
+    public partial class DoNull : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,15 +27,13 @@ namespace Infrastructure.Migrations
                 name: "EmployeeId",
                 table: "Solutions",
                 type: "integer",
-                nullable: false,
-                defaultValue: 0);
+                nullable: true);
 
             migrationBuilder.AddColumn<int>(
                 name: "EmployeeId",
                 table: "Issues",
                 type: "integer",
-                nullable: false,
-                defaultValue: 0);
+                nullable: true);
 
             migrationBuilder.CreateTable(
                 name: "Employees",
@@ -90,16 +88,14 @@ namespace Infrastructure.Migrations
                 table: "Issues",
                 column: "EmployeeId",
                 principalTable: "Employees",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Solutions_Employees_EmployeeId",
                 table: "Solutions",
                 column: "EmployeeId",
                 principalTable: "Employees",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                principalColumn: "Id");
         }
 
         /// <inheritdoc />
