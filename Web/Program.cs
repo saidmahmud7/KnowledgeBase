@@ -1,3 +1,4 @@
+using DotNetEnv;
 using Infrastructure.Data;
 using Infrastructure.Extensions;
 using Infrastructure.Seed;
@@ -9,6 +10,7 @@ using Swashbuckle.AspNetCore.Swagger;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Host.AddSerilogLogger();
 builder.Host.UseSerilog();
 builder.Services.AddOpenApi();
