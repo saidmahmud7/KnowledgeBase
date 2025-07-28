@@ -15,7 +15,6 @@ public class DepartmentController(IDepartmentService service) : ControllerBase
 {
 
     [HttpGet]
-    [Authorize(Roles = Roles.User)]
     public async Task<PaginationResponse<List<GetDepartmentsDto>>> GetAll([FromQuery] DepartmentFilter filter)
     {
         
