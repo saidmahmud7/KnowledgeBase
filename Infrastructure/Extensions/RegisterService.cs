@@ -44,5 +44,7 @@ public static class RegisterService
         
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserService, UserService>();
+        
+        services.AddScoped<IRoleService, RoleService>();
     }
 }

@@ -4,14 +4,13 @@ using Domain.Dto.SolutionDto;
 using Domain.Entities;
 using Domain.Filter;
 using Infrastructure.Interfaces;
-using Infrastructure.Repositories.EmployeeRepositories;
 using Infrastructure.Repositories.IssueRepositories;
 using Infrastructure.Response;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Infrastructure.Services;
 
-public class IssueService(IIssueRepository repository,IWebHostEnvironment _environment) : IIssueService
+public class IssueService(IIssueRepository repository,IWebHostEnvironment environment) : IIssueService
 {
     public async Task<PaginationResponse<List<GetIssuesDto>>> GetAllIssueAsync(IssueFilter filter)
     {
@@ -166,7 +165,7 @@ public class IssueService(IIssueRepository repository,IWebHostEnvironment _envir
 
                 if (!string.IsNullOrEmpty(issue.ProfileImagePath))
                 {
-                    var oldFilePath = Path.Combine(_environment.WebRootPath, issue.ProfileImagePath.TrimStart('/'));
+                    var oldFilePath = Path.Combine(environment.WebRootPath, issue.ProfileImagePath.TrimStart('/'));
                     if (File.Exists(oldFilePath)) File.Delete(oldFilePath);
                 }
 
@@ -199,7 +198,7 @@ public class IssueService(IIssueRepository repository,IWebHostEnvironment _envir
 
         if (!string.IsNullOrEmpty(issue.ProfileImagePath))
         {
-            var filePath = Path.Combine(_environment.WebRootPath, issue.ProfileImagePath.TrimStart('/'));
+            var filePath = Path.Combine(environment.WebRootPath, issue.ProfileImagePath.TrimStart('/'));
             try
             {
                 if (File.Exists(filePath)) File.Delete(filePath);
