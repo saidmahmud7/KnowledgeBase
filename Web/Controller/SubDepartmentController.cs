@@ -23,7 +23,7 @@ public class SubDepartmentController(ISubDepartmentService service) : Controller
 
     [HttpPost]
     [Authorize(Roles = Roles.Admin)]
-    public async Task<ApiResponse<string>> Create([FromForm] AddSubDepartmentDto request) =>
+    public async Task<ApiResponse<string>> Create([FromBody] AddSubDepartmentDto request) =>
         await service.CreateAsync(request);
 
     [HttpPut("{id}")]
