@@ -40,7 +40,8 @@ public class UserService(IUserRepository repository , UserManager<User> userMana
         var userWithSameName = await userManager.FindByNameAsync(request.UserName);
         if (userWithSameName != null && userWithSameName.Id != user.Id)
             return new ApiResponse<string>(HttpStatusCode.BadRequest, "Username already taken");
-
+        
+        user.Id = request.Id;
         user.UserName = request.UserName;
         user.Email = request.Email;
 
