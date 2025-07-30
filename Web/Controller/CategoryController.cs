@@ -21,7 +21,7 @@ public class CategoryController(ICategoryService service) : ControllerBase
 
     [HttpPost]
     [Authorize(Roles = Roles.Admin)]
-    public async Task<ApiResponse<string>> Create([FromForm] AddCategoryDto request) =>
+    public async Task<ApiResponse<string>> Create([FromBody] AddCategoryDto request) =>
         await service.CreateAsync(request);
 
     [HttpPut("{id}")]
