@@ -23,6 +23,7 @@ public class CategoryService(ICategoryRepository repository) : ICategoryService
         {
             Id = c.Id,
             Name = c.Name,
+            CreatedAt = c.CreatedAt,
             SubDepartmentId = c.SubDepartmentId,
             Issues = c.Issues?.Select(i => new GetIssuesDto()
             {
@@ -50,6 +51,7 @@ public class CategoryService(ICategoryRepository repository) : ICategoryService
         {
             Id = category.Id,
             Name = category.Name,
+            CreatedAt = category.CreatedAt,
             SubDepartmentId = category.SubDepartmentId,
             Issues = category.Issues?.Select(i => new GetIssuesDto()
             {
@@ -69,6 +71,7 @@ public class CategoryService(ICategoryRepository repository) : ICategoryService
         var category = new Category()
         {
             Name = request.Name,
+            CreatedAt = DateTime.UtcNow,
             SubDepartmentId = request.SubDepartmentId,
         };
         var result = await repository.CreateCategory(category);
@@ -87,7 +90,9 @@ public class CategoryService(ICategoryRepository repository) : ICategoryService
         }
        
         category.Name = request.Name;
+        category.CreatedAt = DateTime.UtcNow;
         category.SubDepartmentId = request.SubDepartmentId;
+        
         var result = await repository.UpdateCategory(category);
 
         return result == 1

@@ -12,7 +12,7 @@ public class SubDepartmentRepository(DataContext context, ILogger<SubDepartmentR
 {
     public async Task<List<SubDepartment?>> GetAll(SubDepartmentFilter filter)
     {
-        var query = context.SubDepartments.Include(c => c.Categories).AsQueryable();
+        var query = context.SubDepartments.Include(c => c.Categories).OrderByDescending(c=> c.CreatedAt).AsQueryable();
 
         if (!string.IsNullOrEmpty(filter.Name))
             query = query.Where(e => e.Name.ToLower().Trim().Contains(filter.Name.ToLower().Trim()));

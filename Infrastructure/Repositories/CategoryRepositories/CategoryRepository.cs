@@ -11,7 +11,7 @@ public class CategoryRepository(DataContext context, ILogger<CategoryRepository>
 {
     public async Task<List<Category>> GetAll(CategoryFilter filter)
     {
-        var query = context.Categories.Include(i => i.Issues).AsQueryable();
+        var query = context.Categories.Include(i => i.Issues).OrderByDescending(c=> c.CreatedAt).AsQueryable();
 
         if (!string.IsNullOrEmpty(filter.Name))
             query = query.Where(e => e.Name.ToLower().Trim().Contains(filter.Name.ToLower().Trim()));

@@ -22,6 +22,7 @@ public class EmployeeService(IEmployeeRepository repository) : IEmployeeService
         {
             Id = d.Id,
             FullName = d.FullName,
+            CreatedAt = d.CreatedAt,
             DepartmentId = d.DepartmentId,
             UserId = d.UserId,
         }).ToList();
@@ -40,6 +41,7 @@ public class EmployeeService(IEmployeeRepository repository) : IEmployeeService
         {
             Id = employee.Id,
             FullName = employee.FullName,
+            CreatedAt = employee.CreatedAt,
             DepartmentId = employee.DepartmentId,
             UserId = employee.UserId,
         };
@@ -51,6 +53,7 @@ public class EmployeeService(IEmployeeRepository repository) : IEmployeeService
         var employee = new Employee()
         {
             FullName = request.FullName,
+            CreatedAt = DateTime.UtcNow,
             DepartmentId = request.DepartmentId,
             UserId = request.UserId,
         };
@@ -69,6 +72,7 @@ public class EmployeeService(IEmployeeRepository repository) : IEmployeeService
         }
 
         employee.FullName = request.FullName;
+        employee.CreatedAt = DateTime.UtcNow;
         employee.DepartmentId = request.DepartmentId;
         employee.UserId = request.UserId;
 

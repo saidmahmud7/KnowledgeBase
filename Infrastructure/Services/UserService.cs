@@ -25,6 +25,7 @@ public class UserService(IUserRepository repository , UserManager<User> userMana
             UserName = u.UserName,
             Email = u.Email,
             Password = u.PasswordHash,
+            CreatedAt = u.CreatedAt,
         }).ToList();
         return new PaginationResponse<List<GetUserDto>>(result, totalRecords, filter.PageNumber,
             filter.PageSize);
@@ -44,6 +45,7 @@ public class UserService(IUserRepository repository , UserManager<User> userMana
         user.Id = request.Id;
         user.UserName = request.UserName;
         user.Email = request.Email;
+        user.CreatedAt = DateTime.UtcNow;
 
       
         if (!string.IsNullOrWhiteSpace(request.Password))

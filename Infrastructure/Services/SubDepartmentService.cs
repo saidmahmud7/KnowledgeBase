@@ -24,11 +24,13 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
         {
             Id = s.Id,
             Name = s.Name,
+            CreatedAt = s.CreatedAt,
             DepartmentId = s.DepartmentId,
             Categories = s.Categories?.Select(c => new GetCategoryDto()
             {
                 Id = c.Id,
                 Name = c.Name,
+                CreatedAt = c.CreatedAt,
                 SubDepartmentId = c.SubDepartmentId
             }).ToList()
         }).ToList();
@@ -53,6 +55,7 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
             {
                 Id = c.Id,
                 Name = c.Name,
+                CreatedAt = c.CreatedAt,
                 SubDepartmentId = c.SubDepartmentId
             }).ToList()
         };
@@ -64,6 +67,7 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
         var subDepartment = new SubDepartment()
         {
             Name = request.Name,
+            CreatedAt = DateTime.UtcNow,
             DepartmentId = request.DepartmentId,
         };
         var result = await repository.CreateSubDepartment(subDepartment);
@@ -81,6 +85,7 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
         }
 
         subDepartment.Name = request.Name;
+        subDepartment.CreatedAt = DateTime.UtcNow;
         subDepartment.DepartmentId = request.DepartmentId;
         var result = await repository.UpdateSubDepartment(subDepartment);
 

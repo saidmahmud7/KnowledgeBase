@@ -11,13 +11,13 @@ public class UserRepository(DataContext context, ILogger<UserRepository> logger)
 {
     public async Task<List<User>> GetAll(UserFilter filter)
     {
-        var query = context.Users.AsQueryable();
+        var query = context.Users.OrderByDescending(c=> c.CreatedAt).AsQueryable();
 
         var users = await query.ToListAsync();
         return users;
     }
 
-    public async Task<User> GetUser(Expression<Func<User, bool>>? filter = null)
+    public async Task<User?> GetUser(Expression<Func<User, bool>>? filter = null)
     {
         var query = context.Users.AsQueryable();
 
