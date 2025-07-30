@@ -1,13 +1,15 @@
 using System.Net;
 using Domain.Dto.UserDto;
+using Domain.Entities;
 using Domain.Filter;
 using Infrastructure.Interfaces;
 using Infrastructure.Repositories.UserRepositories;
 using Infrastructure.Response;
+using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Services;
 
-public class UserService(IUserRepository repository) : IUserService
+public class UserService(IUserRepository repository , UserManager<User> userManager) : IUserService
 {
     public async Task<PaginationResponse<List<GetUserDto>>> GetAllUserAsync(UserFilter filter)
     {
@@ -35,15 +37,31 @@ public class UserService(IUserRepository repository) : IUserService
         {
             return new ApiResponse<string>(HttpStatusCode.NotFound, "User not found");
         }
+        var userWithSameName = await userManager.FindByNameAsync(request.UserName);
+        if (userWithSameName != null && userWithSameName.Id != user.Id)
+            return new ApiResponse<string>(HttpStatusCode.BadRequest, "Username already taken");
 
         user.UserName = request.UserName;
         user.Email = request.Email;
-        user.PasswordHash = request.Password;
-        var result = await repository.UpdateUser(user);
 
-        return result == 1
-            ? new ApiResponse<string>("Success")
-            : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
+      
+        if (!string.IsNullOrWhiteSpace(request.Password))
+        {
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            var passwordResult = await userManager.ResetPasswordAsync(user, token, request.Password);
+            if (!passwordResult.Succeeded)
+            {
+                var errorMessage = string.Join(", ", passwordResult.Errors.Select(e => e.Description));
+                return new ApiResponse<string>(HttpStatusCode.BadRequest, errorMessage);
+            }
+        }
+
+        var result = await userManager.UpdateAsync(user);
+        if (result.Succeeded)
+            return new ApiResponse<string>("User updated successfully");
+
+        var updateErrors = string.Join(", ", result.Errors.Select(e => e.Description));
+        return new ApiResponse<string>(HttpStatusCode.BadRequest, updateErrors);
     }
 
     public async Task<ApiResponse<string>> DeleteAsync(string id)
