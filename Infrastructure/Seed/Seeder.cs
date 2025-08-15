@@ -16,8 +16,10 @@ public class Seeder(UserManager<User> userManager, RoleManager<IdentityRole> rol
             UserName = "admin",
             Email = "admin@gmail.com",
         };
+        
+        var password = Environment.GetEnvironmentVariable("DEFAULT_USER_PASSWORD");
 
-        var result = await userManager.CreateAsync(user, "Qwert123!");
+        var result = await userManager.CreateAsync(user,password);
         if (!result.Succeeded) return false;
 
         await userManager.AddToRoleAsync(user, Roles.Admin);

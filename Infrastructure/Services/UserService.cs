@@ -67,7 +67,7 @@ public class UserService(IUserRepository repository , UserManager<User> userMana
         return new ApiResponse<string>(HttpStatusCode.BadRequest, updateErrors);
     }
 
-    public async Task<ApiResponse<string>> DeleteAsync(string id)
+    public async Task<ApiResponse<string>> DeleteAsync(string id)           
     {
         var user = await repository.GetUser(d => d.Id == id);
         if (user == null)
@@ -77,7 +77,7 @@ public class UserService(IUserRepository repository , UserManager<User> userMana
 
         var result = await repository.DeleteUser(user);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 }

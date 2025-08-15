@@ -10,7 +10,7 @@ using Swashbuckle.AspNetCore.Swagger;
 
 
 var builder = WebApplication.CreateBuilder(args);
-
+Env.Load();
 builder.Host.AddSerilogLogger();
 builder.Host.UseSerilog();
 builder.Services.AddOpenApi();
@@ -46,7 +46,7 @@ try
 }
 catch (Exception e)
 {
-    Console.WriteLine($"Ошибка при запуске: {e.Message}");
+    Log.Error(e, "Ошибка при запуске приложения");
     throw; 
 }
 

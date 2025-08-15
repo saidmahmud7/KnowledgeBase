@@ -42,7 +42,7 @@ public class SubDepartmentRepository(DataContext context, ILogger<SubDepartmentR
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при добавлении{SubDepartmentName}",request.Name);
             return 0;
         }
     }
@@ -56,7 +56,7 @@ public class SubDepartmentRepository(DataContext context, ILogger<SubDepartmentR
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при обновлении");
             return 0;
         }
     }
@@ -70,7 +70,7 @@ public class SubDepartmentRepository(DataContext context, ILogger<SubDepartmentR
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при удалении");
             return 0;
         }
     }

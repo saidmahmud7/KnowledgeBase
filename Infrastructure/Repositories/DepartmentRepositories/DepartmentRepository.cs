@@ -43,7 +43,7 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при добавлении Департамента {DepartmentName}",request.Name);
             return 0;
         }
     }
@@ -57,7 +57,7 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при обновлении департамента");
             return 0;
         }
     }
@@ -71,7 +71,7 @@ public class DepartmentRepository(DataContext context, ILogger<DepartmentReposit
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при удалении департамента");
             return 0;
         }
     }

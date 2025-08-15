@@ -38,7 +38,7 @@ public class UserRepository(DataContext context, ILogger<UserRepository> logger)
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e.Message,"Ошибка при обновлении User-а");
             return 0;
         }
     }
@@ -52,7 +52,7 @@ public class UserRepository(DataContext context, ILogger<UserRepository> logger)
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e.Message,"Ошибка при удалении User-a");
             return 0;
         }
     }

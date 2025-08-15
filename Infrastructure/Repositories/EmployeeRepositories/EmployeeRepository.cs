@@ -41,7 +41,7 @@ public class EmployeeRepository(DataContext context, ILogger<EmployeeRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при добавлении: {EmployeeName}",request.FullName);
             return 0;
         }
     }
@@ -55,7 +55,7 @@ public class EmployeeRepository(DataContext context, ILogger<EmployeeRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при обновлении");
             return 0;
         }
     }
@@ -69,7 +69,7 @@ public class EmployeeRepository(DataContext context, ILogger<EmployeeRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при удалении");
             return 0;
         }
     }

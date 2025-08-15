@@ -40,7 +40,7 @@ public class CategoryRepository(DataContext context, ILogger<CategoryRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при добавлении категории: {CategoryName}",request.Name);
             return 0;
         }
     }
@@ -54,7 +54,7 @@ public class CategoryRepository(DataContext context, ILogger<CategoryRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при обновлении категории");
             return 0;
         }
     }
@@ -68,7 +68,7 @@ public class CategoryRepository(DataContext context, ILogger<CategoryRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при удалении категории");
             return 0;
         }
     }

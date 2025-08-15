@@ -20,7 +20,7 @@ public class UserController(IUserService service) : ControllerBase
     [Authorize(Roles = Roles.Admin)]
     public async Task<ApiResponse<string>> Update([FromRoute] string id, [FromBody] UpdateUserDto request) =>
         await service.UpdateAsync(id, request);
-
+                                                                                                          
     [HttpDelete("{id}")]
     [Authorize(Roles = Roles.Admin)]
     public async Task<ApiResponse<string>> Delete([FromRoute] string id) => await service.DeleteAsync(id);

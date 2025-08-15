@@ -41,7 +41,7 @@ public class SolutionRepository(DataContext context, ILogger<SolutionRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при добавлении: {SolutionName}",request.Description);
             return 0;
         }
     }
@@ -55,7 +55,7 @@ public class SolutionRepository(DataContext context, ILogger<SolutionRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при обновлении");
             return 0;
         }
     }
@@ -69,7 +69,7 @@ public class SolutionRepository(DataContext context, ILogger<SolutionRepository>
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при удалении");
             return 0;
         }
     }

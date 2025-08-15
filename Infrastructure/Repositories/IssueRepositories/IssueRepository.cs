@@ -21,7 +21,7 @@ public class IssueRepository(DataContext context, ILogger<IssueRepository> logge
         return issues;
     }
 
-    public async Task<Issue> GetIssue(Expression<Func<Issue, bool>>? filter = null)
+    public async Task<Issue?> GetIssue(Expression<Func<Issue, bool>>? filter = null)
     {
         var query = context.Issues.Include(s=> s.Solutions).AsQueryable();
 
@@ -42,7 +42,7 @@ public class IssueRepository(DataContext context, ILogger<IssueRepository> logge
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при добавлении: {IssueName}",request.Title);
             return 0;
         }
     }
@@ -56,7 +56,7 @@ public class IssueRepository(DataContext context, ILogger<IssueRepository> logge
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при обновлении");
             return 0;
         }
     }
@@ -70,7 +70,7 @@ public class IssueRepository(DataContext context, ILogger<IssueRepository> logge
         }
         catch (Exception e)
         {
-            logger.LogError(e.Message);
+            logger.LogError(e,"Ошибка при удалении");
             return 0;
         }
     }

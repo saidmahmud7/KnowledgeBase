@@ -72,7 +72,7 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
         };
         var result = await repository.CreateSubDepartment(subDepartment);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -90,7 +90,7 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
         var result = await repository.UpdateSubDepartment(subDepartment);
 
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 
@@ -104,7 +104,7 @@ public class SubDepartmentService(ISubDepartmentRepository repository) : ISubDep
 
         var result = await repository.DeleteSubDepartment(subDepartment);
         return result == 1
-            ? new ApiResponse<string>("Success")
+            ? new ApiResponse<string>(HttpStatusCode.OK,"Success")
             : new ApiResponse<string>(HttpStatusCode.BadRequest, "Failed");
     }
 }
